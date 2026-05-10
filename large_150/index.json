@@ -1,0 +1,4215 @@
+[
+  {
+    "ticket_id": "INC-2026-0001",
+    "primary": {
+      "resolution_steps": [
+        "Restart kubelet on node-1 with --v=4 flag",
+        "Set /etc/kubernetes/kubelet.conf max-pods to 110",
+        "Run crictl logs --since 1h to check for errors",
+        "Update helm chart values to increase node resources",
+        "Verify node CPU allocation with stern -n kube-system"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The node kubelet crashed due to excessive pod allocation.",
+      "key_command": "crictl info --output json",
+      "escalation_path": [
+        "04:58 \u2014 L1 Platform support: Nikolai",
+        "05:12 \u2014 L2 Platform engineer: Kenji"
+      ],
+      "incident_timestamp": "2026-02-27 04:47 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0001.md"
+  },
+  {
+    "ticket_id": "INC-2026-0002",
+    "primary": {
+      "resolution_steps": [
+        "Restart BGP service on router 10.1.1.1",
+        "Set hold time to 30 seconds on router 10.1.1.1",
+        "Update BGP config with new ASN 12345 on router 10.1.1.1"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The BGP peering session failed due to a mismatched hold time.",
+      "key_command": "traceroute -n 10.1.1.1",
+      "escalation_path": [
+        "14:43 \u2014 L1 Network operations: Greta",
+        "14:58 \u2014 L2 Network engineer: Leila",
+        "15:21 \u2014 L3 Network architect: Sade"
+      ],
+      "incident_timestamp": "2026-01-25 14:38 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0002.md"
+  },
+  {
+    "ticket_id": "INC-2026-0003",
+    "primary": {
+      "resolution_steps": [
+        "Restart MPLS service on router 10.1.1.1",
+        "Set MTU to 1500 on interface eth0",
+        "Update routing table with new VPN route 192.168.2.0/24"
+      ]
+    },
+    "bonus": {
+      "root_cause": "MPLS L3VPN configuration mismatch caused packet loss.",
+      "key_command": "mtr -r -c 10 10.1.1.1",
+      "escalation_path": [
+        "09:15 \u2014 L1 Network operations: Camille",
+        "09:27 \u2014 L2 Network engineer: Sven"
+      ],
+      "incident_timestamp": "2026-02-27 09:01 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0003.md"
+  },
+  {
+    "ticket_id": "INC-2026-0004",
+    "primary": {
+      "resolution_steps": [
+        "Restart auth service on port 8080",
+        "Set session_token_cache_timeout to 3600 seconds",
+        "Update /etc/auth/config.yaml with new cache settings",
+        "Clear existing cache at /var/lib/auth/cache.db"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The session token cache timeout was set too low, causing frequent re-authentication failures.",
+      "key_command": "pam-test -c /etc/auth/pam.conf -a debug",
+      "escalation_path": [
+        "10:08 \u2014 L1 Security operations: Jonas",
+        "10:45 \u2014 L2 Security analyst: Sara"
+      ],
+      "incident_timestamp": "2026-03-19 10:01 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0004.md"
+  },
+  {
+    "ticket_id": "INC-2026-0005",
+    "primary": {
+      "resolution_steps": [
+        "Restart metrics ingestion service with --port 8080",
+        "Set scrape_interval to 15s in /etc/prometheus/config.yml",
+        "Increase log level to DEBUG for pipeline errors",
+        "Verify wal_dir path is set to /var/lib/prometheus/wal"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The metrics ingestion pipeline failed to start due to misconfigured port settings.",
+      "key_command": "promtool query 'scrape_duration_seconds'",
+      "escalation_path": [
+        "18:36 \u2014 L1 SRE on-call: Olu",
+        "18:53 \u2014 L2 SRE: Hana"
+      ],
+      "incident_timestamp": "2026-02-08 18:34 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0005.md"
+  },
+  {
+    "ticket_id": "INC-2026-0006",
+    "primary": {
+      "resolution_steps": [
+        "Restart metadata server on node3",
+        "Set replication_factor to 3 in /etc/distributed_fs.conf",
+        "Run rsync --dry-run -avz /mnt/data/ /mnt/backup/",
+        "Verify multipath -ll output for path redundancy"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The distributed filesystem metadata server experienced data inconsistency due to a failed disk.",
+      "key_command": "smartctl -H /dev/sda",
+      "escalation_path": [
+        "08:35 \u2014 L1 Platform support: Carlos",
+        "09:07 \u2014 L2 Platform engineer: Sofia",
+        "09:42 \u2014 L3 Platform lead: Amelia"
+      ],
+      "incident_timestamp": "2026-03-29 08:32 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0006.md"
+  },
+  {
+    "ticket_id": "INC-2026-0007",
+    "primary": {
+      "resolution_steps": [
+        "Restart router with config file /etc/network/config.txt",
+        "Set BGP hold time to 30 seconds in /etc/network/bgp.conf",
+        "Update nft table filter input to allow ICMP type 8 code 0 on port 179",
+        "Reload nft rules with nft -f /etc/nftables.conf"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The BGP hold time was set too low, causing frequent session timeouts.",
+      "key_command": "dig +short mx example.com @192.168.1.1",
+      "escalation_path": [
+        "22:57 \u2014 L1 Network operations: Rafael",
+        "23:38 \u2014 L2 Network engineer: Aisha",
+        "00:05 \u2014 L3 Network architect: Olu"
+      ],
+      "incident_timestamp": "2026-02-19 22:48 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0007.md"
+  },
+  {
+    "ticket_id": "INC-2026-0008",
+    "primary": {
+      "resolution_steps": [
+        "Restart metrics-agent with --debug flag",
+        "Set scrape_interval to 15s in prometheus.yml",
+        "Increase log level to DEBUG in /etc/metrics-agent/config.yaml"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The metrics ingestion pipeline failed due to a misconfigured scrape interval.",
+      "key_command": "promtool query 'scrape_duration_seconds'",
+      "escalation_path": [
+        "21:14 \u2014 L1 SRE on-call: Alice",
+        "21:59 \u2014 L2 SRE: Linnea",
+        "22:53 \u2014 L3 SRE / incident commander: Liu",
+        "23:23 \u2014 On-call manager: Amelia"
+      ],
+      "incident_timestamp": "2026-01-13 21:02 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0008.md"
+  },
+  {
+    "ticket_id": "INC-2026-0009",
+    "primary": {
+      "resolution_steps": [
+        "Restart tracing collector on port 55678",
+        "Set buffer size to 1024 in /etc/trace/config.yaml",
+        "Adjust timeout to 30s in /etc/trace/config.yaml"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The tracing collector buffer overflowed due to high traffic.",
+      "key_command": "trace-query -p 55678 -b 1024",
+      "escalation_path": [
+        "10:07 \u2014 L1 SRE on-call: Ravi",
+        "10:50 \u2014 L2 SRE: Priya",
+        "11:10 \u2014 L3 SRE / incident commander: Anya",
+        "11:40 \u2014 Engineering manager: Ines"
+      ],
+      "incident_timestamp": "2026-05-02 10:05 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0009.md"
+  },
+  {
+    "ticket_id": "INC-2026-0010",
+    "primary": {
+      "resolution_steps": [
+        "Restart replica server with --max_connections=500",
+        "Set shared_buffers to 4GB in postgresql.conf",
+        "Run VACUUM on tables with bloat_ratio > 2.0",
+        "Adjust wal_sender_timeout to 60 seconds",
+        "Increase effective_cache_size to 8GB"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The read-replica pair experienced severe lag due to inadequate resource allocation.",
+      "key_command": "iostat -xd 5",
+      "escalation_path": [
+        "17:19 \u2014 L1 Database operator: Tomas",
+        "18:04 \u2014 L2 Database engineer: Lukas",
+        "19:01 \u2014 L3 Database lead: Linnea"
+      ],
+      "incident_timestamp": "2026-03-01 17:16 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0010.md"
+  },
+  {
+    "ticket_id": "INC-2026-0011",
+    "primary": {
+      "resolution_steps": [
+        "Restart metadata server on node 3",
+        "Set /etc/metadata/server.conf timeout to 3000ms",
+        "Run rsync --dry-run -avz /mnt/data/ /mnt/backup/",
+        "Verify multipath -ll output for path redundancy"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Metadata server failed to sync due to expired lease.",
+      "key_command": "rsync --dry-run -avz /mnt/data/ /mnt/backup/",
+      "escalation_path": [
+        "13:08 \u2014 L1 Platform support: Sara",
+        "13:31 \u2014 L2 Platform engineer: Nikolai"
+      ],
+      "incident_timestamp": "2026-04-05 13:02 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0011.md"
+  },
+  {
+    "ticket_id": "INC-2026-0012",
+    "primary": {
+      "resolution_steps": [
+        "Set archive_lifecycle_policy.max_retention_days to 365",
+        "Run smartctl -H /dev/sdX on all archive disks",
+        "Verify multipath -ll shows all archive paths as active",
+        "Execute rsync --dry-run -avz /archive/ /new-archive/"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The cold-tier archive lifecycle policy was not updated to reflect the new retention period.",
+      "key_command": "smartctl -H /dev/sdX",
+      "escalation_path": [
+        "23:39 \u2014 L1 Platform support: Felix",
+        "00:04 \u2014 L2 Platform engineer: Ines",
+        "00:48 \u2014 L3 Platform lead: Leila",
+        "01:27 \u2014 On-call manager: Ravi"
+      ],
+      "incident_timestamp": "2026-04-03 23:29 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0012.md"
+  },
+  {
+    "ticket_id": "INC-2026-0013",
+    "primary": {
+      "resolution_steps": [
+        "Raise memory limit to 2 GiB",
+        "Set -Xmx to 1500m for JVM",
+        "Update deployment config with new limits",
+        "Apply updated config with kubectl rollout"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Memory limit was reduced causing JVM OOMKill.",
+      "key_command": "crictl inspect --output json",
+      "escalation_path": [
+        "12:14 \u2014 L1 Platform support: Leila",
+        "12:59 \u2014 L2 Platform engineer: Kenji",
+        "13:40 \u2014 L3 Platform lead: Ahmed"
+      ],
+      "incident_timestamp": "2026-05-05 12:14 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": "pod_crashloop"
+    },
+    "file": "INC-2026-0013.md"
+  },
+  {
+    "ticket_id": "INC-2026-0014",
+    "primary": {
+      "resolution_steps": [
+        "Set bucket replication timeout to 300 seconds",
+        "Increase worker count to 5 for replication task",
+        "Restart object storage service on node 10.0.1.100",
+        "Verify replication queue size with s3-cli --queue-size 1000"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The object storage bucket replication timed out due to insufficient worker nodes.",
+      "key_command": "fio --replicate-bucket --timeout 300",
+      "escalation_path": [
+        "09:19 \u2014 L1 Platform support: Rahul",
+        "09:48 \u2014 L2 Platform engineer: Leila",
+        "10:34 \u2014 L3 Platform lead: Liu"
+      ],
+      "incident_timestamp": "2026-02-17 09:05 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0014.md"
+  },
+  {
+    "ticket_id": "INC-2026-0015",
+    "primary": {
+      "resolution_steps": [
+        "Set default_tablespace to 'main_ts' in postgresql.conf",
+        "Restart database service with systemctl restart db",
+        "Run VACUUM FULL on partitioned table 'orders_2022'",
+        "Adjust partitioning scheme with ALTER TABLE orders SET (autovacuum_enabled = on)"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The table partitioning scheme was not properly configured, leading to disk space issues.",
+      "key_command": "psql -c 'EXPLAIN ANALYZE SELECT * FROM orders'",
+      "escalation_path": [
+        "22:29 \u2014 L1 Database operator: Zara",
+        "23:02 \u2014 L2 Database engineer: Dmitri"
+      ],
+      "incident_timestamp": "2026-04-18 22:14 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0015.md"
+  },
+  {
+    "ticket_id": "INC-2026-0016",
+    "primary": {
+      "resolution_steps": [
+        "Restart runner-pool with --max-retries 5",
+        "Set CI_CONCURRENCY to 10 in /etc/runner/config",
+        "Run registry-gc --dry-run to identify unused images",
+        "Remove unused images older than 30 days with registry-gc --delete",
+        "Update flag-history to reflect new concurrency settings"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The CI runner pool exhausted its resources due to incorrect concurrency settings.",
+      "key_command": "kubectl logs -f runner-pool",
+      "escalation_path": [
+        "15:32 \u2014 L1 Platform support: Leila",
+        "16:01 \u2014 L2 Platform engineer: Camille",
+        "16:40 \u2014 L3 Platform lead: Iris"
+      ],
+      "incident_timestamp": "2026-03-24 15:18 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0016.md"
+  },
+  {
+    "ticket_id": "INC-2026-0017",
+    "primary": {
+      "resolution_steps": [
+        "Restart tsdb service on node3",
+        "Set retention period to 30d in /etc/tsdb.conf",
+        "Run tsdb-cli with --repair flag on node1"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The long-term metrics storage exceeded its configured capacity.",
+      "key_command": "tsdb-cli --query 'rate(tsdb_errors[1m])'",
+      "escalation_path": [
+        "14:35 \u2014 L1 SRE on-call: Sven",
+        "14:53 \u2014 L2 SRE: Nikolai",
+        "15:29 \u2014 L3 SRE / incident commander: Anya"
+      ],
+      "incident_timestamp": "2026-02-19 14:25 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0017.md"
+  },
+  {
+    "ticket_id": "INC-2026-0018",
+    "primary": {
+      "resolution_steps": [
+        "Download new intermediate CA bundle from partner portal https://partner.example.com/ca.bundle",
+        "Add CA bundle to system trust store at /etc/ssl/certs/truststore.pem",
+        "Reload connection pool with updated trust store using systemctl restart saml-gateway",
+        "Verify TLS handshake success with openssl s_client -connect partner.example.com:443"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Partner rotated their server certificate to use an intermediate CA not in our trust store.",
+      "key_command": "openssl s_client -connect partner.example.com:443 -showcerts",
+      "escalation_path": [
+        "22:02 \u2014 L1 Security operations: Mei",
+        "22:40 \u2014 L2 Security analyst: Sven",
+        "23:16 \u2014 L3 Security lead: Sade",
+        "23:55 \u2014 Engineering manager: Maya"
+      ],
+      "incident_timestamp": "2026-03-18 22:01 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": "tls_handshake"
+    },
+    "file": "INC-2026-0018.md"
+  },
+  {
+    "ticket_id": "INC-2026-0019",
+    "primary": {
+      "resolution_steps": [
+        "Clear session token cache at /var/lib/sessions",
+        "Set cache timeout to 3600 seconds in /etc/session.conf",
+        "Restart session service with --force-reload flag",
+        "Verify cache size with session-trace -c 10"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The session token cache became overloaded due to incorrect timeout settings.",
+      "key_command": "openssl s_client -connect localhost:443 -session_reused",
+      "escalation_path": [
+        "15:41 \u2014 L1 Security operations: Otto",
+        "16:26 \u2014 L2 Security analyst: Amelia",
+        "17:10 \u2014 L3 Security lead: Iris"
+      ],
+      "incident_timestamp": "2026-02-28 15:29 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0019.md"
+  },
+  {
+    "ticket_id": "INC-2026-0020",
+    "primary": {
+      "resolution_steps": [
+        "Restart WAL archive process with -o flag",
+        "Set archive_timeout to 60 seconds",
+        "Increase max_wal_senders to 10",
+        "Reduce wal_level to minimal",
+        "Remove stale archives older than 7 days"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The WAL archive process failed due to excessive disk usage.",
+      "key_command": "iostat -xd 2",
+      "escalation_path": [
+        "11:05 \u2014 L1 Database operator: Mateo",
+        "11:19 \u2014 L2 Database engineer: Olu",
+        "11:52 \u2014 L3 Database lead: Sade",
+        "13:01 \u2014 Service owner: Carlos"
+      ],
+      "incident_timestamp": "2026-03-17 10:51 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0020.md"
+  },
+  {
+    "ticket_id": "INC-2026-0021",
+    "primary": {
+      "resolution_steps": [
+        "Restart directory replication service on node 3",
+        "Set replication delay to 30 seconds in /etc/dirsync.conf",
+        "Update pam-test configuration to use the new directory endpoint",
+        "Verify jwt.io equivalent decoder output for authentication headers"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Directory replication failed due to misconfigured SSL certificates.",
+      "key_command": "openssl s_client -connect dirsync.example.com:636 -showcerts",
+      "escalation_path": [
+        "21:36 \u2014 L1 Security operations: Sade",
+        "22:05 \u2014 L2 Security analyst: Nina"
+      ],
+      "incident_timestamp": "2026-03-21 21:22 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0021.md"
+  },
+  {
+    "ticket_id": "INC-2026-0022",
+    "primary": {
+      "resolution_steps": [
+        "Restart tracing collector on node 3 with --max-memory 4096",
+        "Set tsdb.max_series 5000 in /etc/tsdb.conf",
+        "Increase trace-query timeout to 30000ms with -t flag",
+        "Run tsdb-cli compact on /var/lib/tsdb to free disk space"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The tracing collector ran out of memory due to high series cardinality.",
+      "key_command": "log-tail -f /var/log/tracing-collector.log | grep OOM",
+      "escalation_path": [
+        "12:53 \u2014 L1 SRE on-call: Pavel",
+        "13:29 \u2014 L2 SRE: Sade"
+      ],
+      "incident_timestamp": "2026-01-23 12:47 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "medium",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0022.md"
+  },
+  {
+    "ticket_id": "INC-2026-0023",
+    "primary": {
+      "resolution_steps": [
+        "Restart broker with --max-connections=500",
+        "Set registry_gc_interval to 30m in /etc/broker/config.yaml",
+        "Run registry-gc with --dry-run=false --broker-address=:9092",
+        "Verify flag-history for --max-connections changes in the last hour",
+        "Adjust broker-admin --connection-timeout to 10s"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The shared message broker exceeded its connection limit due to incorrect configuration.",
+      "key_command": "broker-admin --check-connections --broker-address=:9092",
+      "escalation_path": [
+        "06:25 \u2014 L1 Platform support: Bashir",
+        "06:50 \u2014 L2 Platform engineer: Leila",
+        "07:29 \u2014 L3 Platform lead: Dmitri",
+        "08:55 \u2014 On-call manager: Ines"
+      ],
+      "incident_timestamp": "2026-01-05 06:17 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0023.md"
+  },
+  {
+    "ticket_id": "INC-2026-0024",
+    "primary": {
+      "resolution_steps": [
+        "Restart container runtime with --dns-cache-size=1000",
+        "Set /etc/containerd/config.toml max_ttl to 30s",
+        "Run crictl inspect on node-local DNS cache pod",
+        "Verify cache size with stern -n kube-system"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The node-local DNS cache was not properly configured and exceeded its default cache size.",
+      "key_command": "crictl inspect --output json",
+      "escalation_path": [
+        "14:38 \u2014 L1 Platform support: Nora",
+        "15:22 \u2014 L2 Platform engineer: Imani",
+        "16:09 \u2014 L3 Platform lead: Sara"
+      ],
+      "incident_timestamp": "2026-04-24 14:33 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0024.md"
+  },
+  {
+    "ticket_id": "INC-2026-0025",
+    "primary": {
+      "resolution_steps": [
+        "Restart metrics-agent with --debug flag",
+        "Set buffer_size to 1024 in /etc/metrics/config.yaml",
+        "Increase tsdb retention period to 30 days",
+        "Run tsdb-cli with --repair option on node1"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The metrics ingestion pipeline failed due to a buffer overflow error.",
+      "key_command": "tsdb-cli --query 'select * from metrics where time > now() - 1h'",
+      "escalation_path": [
+        "09:06 \u2014 L1 SRE on-call: Mateo",
+        "09:42 \u2014 L2 SRE: Ahmed",
+        "10:27 \u2014 L3 SRE / incident commander: Bashir",
+        "11:44 \u2014 Engineering manager: Sofia"
+      ],
+      "incident_timestamp": "2026-03-17 08:55 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "medium",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0025.md"
+  },
+  {
+    "ticket_id": "INC-2026-0026",
+    "primary": {
+      "resolution_steps": [
+        "Restart object storage service on node 3 with --force flag",
+        "Set replication factor to 3 in /etc/objectstorage/config.yaml",
+        "Run rsync --dry-run -avz /mnt/data/ to test replication sync",
+        "Verify multipath -ll output for healthy storage paths on all nodes",
+        "Adjust smartctl -a /dev/sdb settings to optimize disk performance"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The object storage bucket replication failed due to a misconfigured replication factor.",
+      "key_command": "multipath -ll",
+      "escalation_path": [
+        "19:41 \u2014 L1 Platform support: Iris",
+        "20:16 \u2014 L2 Platform engineer: Otto",
+        "20:52 \u2014 L3 Platform lead: Rahul"
+      ],
+      "incident_timestamp": "2026-03-10 19:27 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0026.md"
+  },
+  {
+    "ticket_id": "INC-2026-0027",
+    "primary": {
+      "resolution_steps": [
+        "Set autovacuum_vacuum_scale_factor to 0.1",
+        "Restart autovacuum daemon with -d option",
+        "Run VACUUM on pg_catalog tables with verbose output",
+        "Adjust shared_buffers to 128MB in postgresql.conf",
+        "Set maintenance_work_mem to 64MB"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The autovacuum daemon failed to clean up dead tuples due to insufficient maintenance resources.",
+      "key_command": "psql -c \"SHOW autovacuum_vacuum_scale_factor;\"",
+      "escalation_path": [
+        "13:38 \u2014 L1 Database operator: Liu",
+        "13:59 \u2014 L2 Database engineer: Ahmed",
+        "14:21 \u2014 L3 Database lead: Imani"
+      ],
+      "incident_timestamp": "2026-03-04 13:30 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0027.md"
+  },
+  {
+    "ticket_id": "INC-2026-0028",
+    "primary": {
+      "resolution_steps": [
+        "Restart probe runner with --max-retries 3",
+        "Set scrape_interval to 15s in tsdb config",
+        "Increase log level to DEBUG at /etc/probe-runner/logging.conf",
+        "Run promtool to reload tsdb configuration"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The synthetic-probe runner failed to restart after a crash.",
+      "key_command": "tsdb-cli --query 'probe_runner_status'",
+      "escalation_path": [
+        "11:11 \u2014 L1 SRE on-call: Yuki",
+        "11:37 \u2014 L2 SRE: Sofia",
+        "12:04 \u2014 L3 SRE / incident commander: Diego",
+        "12:59 \u2014 Engineering manager: Lukas"
+      ],
+      "incident_timestamp": "2026-03-30 10:58 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0028.md"
+  },
+  {
+    "ticket_id": "INC-2026-0029",
+    "primary": {
+      "resolution_steps": [
+        "Restart primary SQL replica with --max-connections=500",
+        "Set max_wal_senders to 10 in postgresql.conf",
+        "Adjust pidstat sampling interval to 10 seconds",
+        "Increase shared_buffers to 4GB in postgresql.conf"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The primary SQL replica exceeded its connection limit due to a surge in queries.",
+      "key_command": "pidstat -p $(pgrep postgres) 10 10",
+      "escalation_path": [
+        "10:18 \u2014 L1 Database operator: Kenji",
+        "10:37 \u2014 L2 Database engineer: Eva"
+      ],
+      "incident_timestamp": "2026-02-04 10:06 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0029.md"
+  },
+  {
+    "ticket_id": "INC-2026-0030",
+    "primary": {
+      "resolution_steps": [
+        "Set scale target to 50% CPU",
+        "Update deployment config with maxReplicas=10",
+        "Restart autoscaler with --v=5 flag",
+        "Verify hpa-metrics adapter is running on port 8443"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The horizontal pod autoscaler misconfigured scale target led to insufficient replicas.",
+      "key_command": "kubectl describe hpa -n default",
+      "escalation_path": [
+        "06:31 \u2014 L1 Platform support: Ravi",
+        "07:03 \u2014 L2 Platform engineer: Nora"
+      ],
+      "incident_timestamp": "2026-02-09 06:16 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0030.md"
+  },
+  {
+    "ticket_id": "INC-2026-0031",
+    "primary": {
+      "resolution_steps": [
+        "Stop CI runner pool with --force flag",
+        "Clean /var/lib/ci-runners directory",
+        "Set max_concurrent_jobs to 5 in ci_config.yml",
+        "Restart CI runner service with --verbose flag"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The CI runner pool was overwhelmed by concurrent jobs.",
+      "key_command": "vault read /secret/ci-config",
+      "escalation_path": [
+        "09:51 \u2014 L1 Platform support: Zara",
+        "10:04 \u2014 L2 Platform engineer: Mateo",
+        "10:55 \u2014 L3 Platform lead: Liu",
+        "12:20 \u2014 Engineering manager: Bruno"
+      ],
+      "incident_timestamp": "2026-04-06 09:47 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0031.md"
+  },
+  {
+    "ticket_id": "INC-2026-0032",
+    "primary": {
+      "resolution_steps": [
+        "Restart etcd member on node 3",
+        "Set etcd quorum threshold to 2",
+        "Increase heartbeat interval to 500ms",
+        "Run etcdctl alarm list to verify"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The etcd cluster lost quorum due to a network partition.",
+      "key_command": "etcdctl member list --cluster",
+      "escalation_path": [
+        "14:33 \u2014 L1 Platform support: Lukas",
+        "15:14 \u2014 L2 Platform engineer: Jonas",
+        "15:56 \u2014 L3 Platform lead: Mei",
+        "16:38 \u2014 On-call manager: Maya"
+      ],
+      "incident_timestamp": "2026-02-16 14:19 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0032.md"
+  },
+  {
+    "ticket_id": "INC-2026-0033",
+    "primary": {
+      "resolution_steps": [
+        "Set OSPF backbone area ID to 0.0.0.1",
+        "Restart OSPF service on router 10.1.1.100",
+        "Configure interface eth0 with IP 10.1.1.101/30",
+        "Update OSPF config with metric 50 for path cost",
+        "Reload router 10.1.1.102 with new OSPF config"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The OSPF backbone area was misconfigured with incorrect area ID.",
+      "key_command": "mtr -r 10.1.1.100",
+      "escalation_path": [
+        "06:36 \u2014 L1 Network operations: Eva",
+        "06:52 \u2014 L2 Network engineer: Aisha"
+      ],
+      "incident_timestamp": "2026-02-16 06:22 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0033.md"
+  },
+  {
+    "ticket_id": "INC-2026-0034",
+    "primary": {
+      "resolution_steps": [
+        "Restart WAL archive process with -v flag",
+        "Set wal_sender_timeout to 3000ms in postgresql.conf",
+        "Increase max_wal_senders to 5 in postgresql.conf",
+        "Run psql to verify wal_level is set to hot_standby"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The WAL archive process failed due to excessive timeout errors.",
+      "key_command": "psql -c 'SHOW wal_sender_timeout'",
+      "escalation_path": [
+        "21:50 \u2014 L1 Database operator: Yuki",
+        "22:00 \u2014 L2 Database engineer: Mei",
+        "22:39 \u2014 L3 Database lead: Anya",
+        "23:37 \u2014 Service owner: Amelia"
+      ],
+      "incident_timestamp": "2026-05-02 21:43 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0034.md"
+  },
+  {
+    "ticket_id": "INC-2026-0035",
+    "primary": {
+      "resolution_steps": [
+        "Restart metadata server on node 3",
+        "Set replication_factor to 3 in /etc/fs_config",
+        "Run fio with --numjobs 4 to rebalance load"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Metadata server failed due to insufficient replication.",
+      "key_command": "smartctl -H /dev/sda",
+      "escalation_path": [
+        "14:05 \u2014 L1 Platform support: Hiro",
+        "14:44 \u2014 L2 Platform engineer: Tomas"
+      ],
+      "incident_timestamp": "2026-01-14 13:53 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0035.md"
+  },
+  {
+    "ticket_id": "INC-2026-0036",
+    "primary": {
+      "resolution_steps": [
+        "Restart dns-cache service on node 3",
+        "Set dns_cache_ttl to 300 in /etc/dns/config.yaml",
+        "Update dns-updater script to use --retry-flag 5",
+        "Clear /var/lib/dns/cache directory"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The internal DNS cache expired due to a misconfigured ttl value.",
+      "key_command": "dig +short dns-cache-status.example.com",
+      "escalation_path": [
+        "09:33 \u2014 L1 Platform support: Iris",
+        "10:16 \u2014 L2 Platform engineer: Kai",
+        "11:01 \u2014 L3 Platform lead: Kenji",
+        "11:45 \u2014 Engineering manager: Ines"
+      ],
+      "incident_timestamp": "2026-01-30 09:30 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0036.md"
+  },
+  {
+    "ticket_id": "INC-2026-0037",
+    "primary": {
+      "resolution_steps": [
+        "Restart secrets manager service on node 3",
+        "Set ttl to 3600 for all secrets in /etc/secrets/registry",
+        "Run registry-gc with --flag=expire-over-7d",
+        "Verify secrets rotation interval is 24h in /etc/broker/config.yaml"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The secrets manager service was not properly rotating secrets due to a misconfigured ttl.",
+      "key_command": "broker-admin secrets list --filter=expired",
+      "escalation_path": [
+        "01:54 \u2014 L1 Platform support: Eva",
+        "02:12 \u2014 L2 Platform engineer: Nikolai"
+      ],
+      "incident_timestamp": "2026-04-20 01:41 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0037.md"
+  },
+  {
+    "ticket_id": "INC-2026-0038",
+    "primary": {
+      "resolution_steps": [
+        "Restart replica on host db-replica-1",
+        "Set max_connections to 100 in postgresql.conf",
+        "Adjust wal_receiver_timeout to 60 seconds"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The read-replica pair failed to synchronize due to exhausted connections.",
+      "key_command": "psql -c 'SELECT * FROM pg_stat_activity;'",
+      "escalation_path": [
+        "07:56 \u2014 L1 Database operator: Amelia",
+        "08:23 \u2014 L2 Database engineer: Leila",
+        "08:44 \u2014 L3 Database lead: Hana",
+        "10:07 \u2014 Engineering manager: Bruno"
+      ],
+      "incident_timestamp": "2026-03-03 07:46 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0038.md"
+  },
+  {
+    "ticket_id": "INC-2026-0039",
+    "primary": {
+      "resolution_steps": [
+        "Restart etcd cluster with 3 members",
+        "Set etcd election timeout to 3000ms",
+        "Verify etcd data directory at /var/lib/etcd",
+        "Run etcdctl member list to check cluster health"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The etcd cluster experienced a quorum loss due to network latency.",
+      "key_command": "etcdctl member list --cluster=dial-timeout=5s",
+      "escalation_path": [
+        "11:48 \u2014 L1 Platform support: Olu",
+        "12:15 \u2014 L2 Platform engineer: Dmitri",
+        "13:05 \u2014 L3 Platform lead: Maya"
+      ],
+      "incident_timestamp": "2026-04-05 11:34 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0039.md"
+  },
+  {
+    "ticket_id": "INC-2026-0040",
+    "primary": {
+      "resolution_steps": [
+        "Restart feature-flag service with --reset-cache flag",
+        "Set cache.ttl to 300 in /etc/feature-flag/config.yaml",
+        "Run registry-gc --dry-run to identify stale entries",
+        "Remove outdated flags using broker-admin --delete-flag"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The feature-flag service cache was not properly reset after a configuration update.",
+      "key_command": "vault read -field=value /secret/feature-flag/config",
+      "escalation_path": [
+        "05:16 \u2014 L1 Platform support: Eva",
+        "05:33 \u2014 L2 Platform engineer: Kenji",
+        "06:32 \u2014 L3 Platform lead: Carlos"
+      ],
+      "incident_timestamp": "2026-01-05 05:09 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0040.md"
+  },
+  {
+    "ticket_id": "INC-2026-0041",
+    "primary": {
+      "resolution_steps": [
+        "Restart container runtime with --log-level=debug flag",
+        "Set max_container_logs_size to 100MB in /etc/container/runtime.conf",
+        "Run crictl logs --id container_id to verify log rotation",
+        "Increase container_runtime_restart_timeout to 300s in /etc/systemd/system/container.service",
+        "Restart systemd service with systemctl restart container"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The container runtime failed to restart due to excessive log size.",
+      "key_command": "crictl info --log-level=debug",
+      "escalation_path": [
+        "21:26 \u2014 L1 Platform support: Nikolai",
+        "22:01 \u2014 L2 Platform engineer: Pavel"
+      ],
+      "incident_timestamp": "2026-02-12 21:16 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0041.md"
+  },
+  {
+    "ticket_id": "INC-2026-0042",
+    "primary": {
+      "resolution_steps": [
+        "Drop orphaned replication slot named 'slot_123' using psql",
+        "Set wal_sender_timeout to 60 seconds in postgresql.conf",
+        "Add monitoring alert for replication slot size exceeding 30 GB",
+        "Restart postgres service to apply configuration changes",
+        "Verify slot size using psql command: SELECT pg_size_pretty(pg_wal_lsn_diff(pg_current_wal_lsn(), 'slot_123'))"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Logical replication slot grew past disk threshold of 40 GB and writer paused while WAL was flushed.",
+      "key_command": "psql -c \"SELECT * FROM pg_replication_slots WHERE slot_name = 'slot_123';\"",
+      "escalation_path": [
+        "01:45 \u2014 L1 Database operator: Sara",
+        "02:12 \u2014 L2 Database engineer: Theo"
+      ],
+      "incident_timestamp": "2026-01-09 01:41 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": "db_conn_drops"
+    },
+    "file": "INC-2026-0042.md"
+  },
+  {
+    "ticket_id": "INC-2026-0043",
+    "primary": {
+      "resolution_steps": [
+        "Disable DNSSEC validation for delegated zone example.com",
+        "Set dnssec-validation no for example.com in /etc/nft/nftables.conf",
+        "Restart nft service with systemctl restart nft",
+        "Verify resolver cache flush with nslookup -debug example.com"
+      ]
+    },
+    "bonus": {
+      "root_cause": "DNSSEC validation failure on delegated zone example.com caused fallback retries to expire the resolver budget.",
+      "key_command": "nft list table inet filter | grep dnssec",
+      "escalation_path": [
+        "06:35 \u2014 L1 Network operations: Hana",
+        "07:01 \u2014 L2 Network engineer: Ines",
+        "07:41 \u2014 L3 Network architect: Camille"
+      ],
+      "incident_timestamp": "2026-03-23 06:29 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": "dns_latency"
+    },
+    "file": "INC-2026-0043.md"
+  },
+  {
+    "ticket_id": "INC-2026-0044",
+    "primary": {
+      "resolution_steps": [
+        "Restart snapshot service with --debug flag",
+        "Set snapshot timeout to 300 seconds in /etc/snap.cfg",
+        "Run fio --size 1G --bwavg to test volume throughput",
+        "Adjust iostat interval to 10 seconds for detailed monitoring",
+        "Use s3-style CLI to verify snapshot integrity with --checksum option"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The block storage volume snapshot timed out due to insufficient resources.",
+      "key_command": "iostat -x 10 /dev/sda1",
+      "escalation_path": [
+        "14:54 \u2014 L1 Platform support: Sara",
+        "15:19 \u2014 L2 Platform engineer: Imani",
+        "15:50 \u2014 L3 Platform lead: Lukas"
+      ],
+      "incident_timestamp": "2026-02-26 14:49 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0044.md"
+  },
+  {
+    "ticket_id": "INC-2026-0045",
+    "primary": {
+      "resolution_steps": [
+        "Restart BGP daemon with flag -r to reload config",
+        "Set bgp holdtime to 30 and keepalive interval to 10",
+        "Increase tcp buffer size to 1048576 for BGP session",
+        "Verify mtu size of 1500 on both peering interfaces"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The BGP peering session timed out due to incorrect holdtime configuration.",
+      "key_command": "tcpdump -i any port 179 -n -vv -s 0 -c 100",
+      "escalation_path": [
+        "22:46 \u2014 L1 Network operations: Tara",
+        "22:59 \u2014 L2 Network engineer: Yuki",
+        "23:19 \u2014 L3 Network architect: Hana",
+        "23:55 \u2014 Service owner: Nora"
+      ],
+      "incident_timestamp": "2026-01-18 22:32 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0045.md"
+  },
+  {
+    "ticket_id": "INC-2026-0046",
+    "primary": {
+      "resolution_steps": [
+        "Set max_ttl to 3600 in /etc/secrets.conf",
+        "Restart secrets manager service on node 10.1.1.5",
+        "Update flag --secrets-refresh-interval to 60 in runner-logs",
+        "Verify secrets rotation with vault-style CLI command"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The max_ttl value was set too low, causing frequent secret expiration.",
+      "key_command": "vault read -field=tokens /secret/path",
+      "escalation_path": [
+        "20:43 \u2014 L1 Platform support: Sofia",
+        "21:05 \u2014 L2 Platform engineer: Carlos",
+        "21:42 \u2014 L3 Platform lead: Priya",
+        "23:03 \u2014 Engineering manager: Bashir"
+      ],
+      "incident_timestamp": "2026-03-27 20:34 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0046.md"
+  },
+  {
+    "ticket_id": "INC-2026-0047",
+    "primary": {
+      "resolution_steps": [
+        "Restart multipathd service with debug flag",
+        "Set max_fds to 1024 in /etc/multipath.conf",
+        "Reload multipath configuration with iostat -x",
+        "Verify path priority with fio --filename=/dev/mapper/mpath0"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The SAN multipath driver was misconfigured, causing I/O errors.",
+      "key_command": "iostat -x /dev/mapper/mpath0",
+      "escalation_path": [
+        "10:45 \u2014 L1 Platform support: Linnea",
+        "11:13 \u2014 L2 Platform engineer: Nina",
+        "11:46 \u2014 L3 Platform lead: Felix"
+      ],
+      "incident_timestamp": "2026-01-03 10:43 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0047.md"
+  },
+  {
+    "ticket_id": "INC-2026-0048",
+    "primary": {
+      "resolution_steps": [
+        "Drain node with kubectl drain --delete-local-data --force --ignore-daemonsets",
+        "Restart CNI daemon with systemctl restart cni",
+        "Verify CNI bridge with ip link show cni0",
+        "Re-add node to pool with kubectl uncordon"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Node had a stale CNI bridge after kernel upgrade, causing DNS timeout.",
+      "key_command": "crictl inspect --output json",
+      "escalation_path": [
+        "02:21 \u2014 L1 Platform support: Ravi",
+        "02:52 \u2014 L2 Platform engineer: Mateo",
+        "03:25 \u2014 L3 Platform lead: Eva"
+      ],
+      "incident_timestamp": "2026-03-30 02:09 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": "pod_crashloop"
+    },
+    "file": "INC-2026-0048.md"
+  },
+  {
+    "ticket_id": "INC-2026-0049",
+    "primary": {
+      "resolution_steps": [
+        "Restart log forwarder on node 10.0.1.5",
+        "Set max_buffer_size to 1024 in /etc/log_forwarder.conf",
+        "Increase timeout to 30s in /etc/log_forwarder.conf"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The log aggregation forwarder failed due to buffer overflow.",
+      "key_command": "tsdb-cli query --start=-1h 'log.forwarder.errors'",
+      "escalation_path": [
+        "14:45 \u2014 L1 SRE on-call: Liu",
+        "15:15 \u2014 L2 SRE: Hana",
+        "16:06 \u2014 L3 SRE / incident commander: Dmitri"
+      ],
+      "incident_timestamp": "2026-04-01 14:36 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0049.md"
+  },
+  {
+    "ticket_id": "INC-2026-0050",
+    "primary": {
+      "resolution_steps": [
+        "Set max_connections to 500 in postgresql.conf",
+        "Restart primary SQL replica on node1",
+        "Adjust pgbouncer.ini to increase pool_size to 200",
+        "Run pidstat -p 1234 to monitor CPU usage",
+        "Set statement_timeout to 30000 in postgresql.conf"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The primary SQL replica exceeded its connection limit due to a misconfigured max_connections setting.",
+      "key_command": "psql -c 'SELECT * FROM pg_stat_activity;'",
+      "escalation_path": [
+        "23:42 \u2014 L1 Database operator: Alice",
+        "00:14 \u2014 L2 Database engineer: Yuki",
+        "00:56 \u2014 L3 Database lead: Priya"
+      ],
+      "incident_timestamp": "2026-04-28 23:28 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0050.md"
+  },
+  {
+    "ticket_id": "INC-2026-0051",
+    "primary": {
+      "resolution_steps": [
+        "Increase wal_sender_timeout to 60 seconds",
+        "Set archive_timeout to 30 minutes",
+        "Restart wal archiver process with -o flag",
+        "Verify archive_command points to /mnt/archive",
+        "Adjust iostat interval to 10 seconds for monitoring"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The WAL archive process was unable to keep up with transaction volume.",
+      "key_command": "iostat -x 10 /dev/sda1",
+      "escalation_path": [
+        "18:37 \u2014 L1 Database operator: Greta",
+        "19:07 \u2014 L2 Database engineer: Pavel",
+        "19:32 \u2014 L3 Database lead: Nora"
+      ],
+      "incident_timestamp": "2026-01-25 18:33 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0051.md"
+  },
+  {
+    "ticket_id": "INC-2026-0052",
+    "primary": {
+      "resolution_steps": [
+        "Scale cluster autoscaler deployment to 3 replicas",
+        "Set maxNodesTotal to 10 in cluster autoscaler configmap",
+        "Update helm chart with autoscaler version 1.20.0",
+        "Restart cluster autoscaler pods with kubectl rollout restart",
+        "Verify autoscaler logs for scale up events with crictl logs"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The cluster autoscaler was not scaling properly due to outdated configuration.",
+      "key_command": "kubectl describe deployment cluster-autoscaler --namespace kube-system",
+      "escalation_path": [
+        "11:13 \u2014 L1 Platform support: Anya",
+        "11:39 \u2014 L2 Platform engineer: Otto"
+      ],
+      "incident_timestamp": "2026-01-24 11:09 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0052.md"
+  },
+  {
+    "ticket_id": "INC-2026-0053",
+    "primary": {
+      "resolution_steps": [
+        "Set max_wal_senders to 10 in postgresql.conf",
+        "Restart database service with systemctl restart db",
+        "Run psql -c 'SELECT * FROM pg_replication_slots;' to verify slot status",
+        "Execute psql -c 'DROP REPLICA SLOT slot_name;' to remove stale slot",
+        "Create a new replication slot with psql -c 'CREATE REPLICA SLOT new_slot_name;'"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The database replication slot was exhausted due to insufficient max_wal_senders.",
+      "key_command": "psql -c 'EXPLAIN ANALYZE SELECT * FROM pg_stat_replication;'",
+      "escalation_path": [
+        "00:58 \u2014 L1 Database operator: Sven",
+        "01:21 \u2014 L2 Database engineer: Rahul",
+        "02:19 \u2014 L3 Database lead: Tara"
+      ],
+      "incident_timestamp": "2026-04-21 00:43 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0053.md"
+  },
+  {
+    "ticket_id": "INC-2026-0054",
+    "primary": {
+      "resolution_steps": [
+        "Restart dns-resolver service on node 10.0.1.5",
+        "Set max_cache_size to 10000 in /etc/dns/config.yaml",
+        "Increase timeout to 5s for recursive queries",
+        "Check for errors in /var/log/dns/query.log"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The recursive DNS resolver cluster experienced cache overflow due to high query volume.",
+      "key_command": "tcpdump -i any port 53",
+      "escalation_path": [
+        "20:17 \u2014 L1 Network operations: Mark",
+        "20:40 \u2014 L2 Network engineer: Tara"
+      ],
+      "incident_timestamp": "2026-01-22 20:17 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0054.md"
+  },
+  {
+    "ticket_id": "INC-2026-0055",
+    "primary": {
+      "resolution_steps": [
+        "Set minReplicaCount to 3 in hpa.yaml",
+        "Update deployment with helm upgrade --set maxReplicas=10",
+        "Verify hpa config with etcdctl get /registry/deployments/hpa",
+        "Check pod logs with stern -n default -c container-name"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The horizontal pod autoscaler was misconfigured with a low minReplicaCount.",
+      "key_command": "kubectl get hpa -o yaml",
+      "escalation_path": [
+        "10:56 \u2014 L1 Platform support: Liu",
+        "11:33 \u2014 L2 Platform engineer: Maya"
+      ],
+      "incident_timestamp": "2026-01-25 10:48 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0055.md"
+  },
+  {
+    "ticket_id": "INC-2026-0056",
+    "primary": {
+      "resolution_steps": [
+        "Restart log forwarder service on node 3",
+        "Set max_buffer_size to 1024 in /etc/log_forwarder.conf",
+        "Increase timeout to 30s for remote write operations"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The log aggregation forwarder failed to send logs due to buffer overflow.",
+      "key_command": "tsdb-cli query --start=-1h 'log_forwarder_errors'",
+      "escalation_path": [
+        "17:49 \u2014 L1 SRE on-call: Camille",
+        "18:30 \u2014 L2 SRE: Linnea"
+      ],
+      "incident_timestamp": "2026-01-06 17:49 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0056.md"
+  },
+  {
+    "ticket_id": "INC-2026-0057",
+    "primary": {
+      "resolution_steps": [
+        "Restart dns-cache service on node 10.0.1.5",
+        "Set dns_ttl to 300 in /etc/dns/config.yml",
+        "Clear cache with vault-cli --purge-cache",
+        "Update broker-admin with new dns_server_ip 10.0.1.10"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The internal DNS cache expired due to incorrect dns_ttl setting.",
+      "key_command": "dig +short dns-server.internal @10.0.1.5",
+      "escalation_path": [
+        "15:29 \u2014 L1 Platform support: Mateo",
+        "16:13 \u2014 L2 Platform engineer: Anya",
+        "17:07 \u2014 L3 Platform lead: Imani",
+        "17:57 \u2014 Service owner: Ahmed"
+      ],
+      "incident_timestamp": "2026-01-16 15:18 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0057.md"
+  },
+  {
+    "ticket_id": "INC-2026-0058",
+    "primary": {
+      "resolution_steps": [
+        "Restart cache with --max-ttl 300",
+        "Set dns-cache-size to 1000 in /etc/kubernetes/node-local-dns.conf",
+        "Verify cache hit ratio with stern -n kube-system node-local-dns",
+        "Adjust --cache-max-concurrent 5 for better performance"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The node-local DNS cache was not properly configured and timed out frequently.",
+      "key_command": "k9s get deploy/node-local-dns -o yaml",
+      "escalation_path": [
+        "07:13 \u2014 L1 Platform support: Ines",
+        "07:34 \u2014 L2 Platform engineer: Pavel"
+      ],
+      "incident_timestamp": "2026-02-28 07:08 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0058.md"
+  },
+  {
+    "ticket_id": "INC-2026-0059",
+    "primary": {
+      "resolution_steps": [
+        "Restart pgbouncer on read-replica at 10.0.1.100",
+        "Set max_client_conn to 500 in pgbouncer.ini",
+        "Run pidstat -p 1234 to monitor cpu usage of replica process",
+        "Adjust kernel.shmmax to 1073741824 on replica host",
+        "Verify replication lag with psql -c 'SELECT pg_last_xlog_receive_location()' on replica"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The read-replica pair experienced connection overload due to excessive client connections.",
+      "key_command": "pgbouncer -v /var/log/pgbouncer.log",
+      "escalation_path": [
+        "13:39 \u2014 L1 Database operator: Leila",
+        "14:10 \u2014 L2 Database engineer: Aisha"
+      ],
+      "incident_timestamp": "2026-03-31 13:32 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0059.md"
+  },
+  {
+    "ticket_id": "INC-2026-0060",
+    "primary": {
+      "resolution_steps": [
+        "Restart storage service on node 3",
+        "Set archive policy retention period to 365 days",
+        "Run multipath -ll on /dev/sdb to verify path status",
+        "Adjust iostat sampling interval to 10 seconds",
+        "Execute smartctl -H /dev/sda to check disk health"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The cold-tier archive lifecycle policy was not updated after adding new storage nodes.",
+      "key_command": "multipath -ll /dev/sdb",
+      "escalation_path": [
+        "21:43 \u2014 L1 Platform support: Dmitri",
+        "22:09 \u2014 L2 Platform engineer: Greta"
+      ],
+      "incident_timestamp": "2026-01-13 21:32 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0060.md"
+  },
+  {
+    "ticket_id": "INC-2026-0061",
+    "primary": {
+      "resolution_steps": [
+        "Restart dns-resolver service on node 10.0.1.5",
+        "Set max_concurrent_requests to 500 in /etc/dns/config.yaml",
+        "Increase cache_size to 1024MB in /etc/dns/config.yaml",
+        "Run iperf3 -c 10.0.1.5 -u -b 100M to test UDP throughput"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The recursive DNS resolver cluster was overwhelmed by excessive concurrent requests.",
+      "key_command": "mtr --tcp --report -c 10 10.0.1.5",
+      "escalation_path": [
+        "12:31 \u2014 L1 Network operations: Tara",
+        "13:16 \u2014 L2 Network engineer: Hiro",
+        "13:53 \u2014 L3 Network architect: Iris",
+        "15:03 \u2014 Engineering manager: Eva"
+      ],
+      "incident_timestamp": "2026-02-16 12:18 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0061.md"
+  },
+  {
+    "ticket_id": "INC-2026-0062",
+    "primary": {
+      "resolution_steps": [
+        "Set iperf3 buffer size to 128KB for accurate measurement",
+        "Run mtr with --report option to analyze packet loss on the anycast VIP",
+        "Update nft rule 10 to prioritize traffic on the primary uplink interface eth0",
+        "Configure iperf3 to use UDP protocol with --udp option for better throughput testing"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The anycast VIP routing configuration was not properly optimized for high traffic volumes.",
+      "key_command": "mtr -r --report anycast-vip.example.com",
+      "escalation_path": [
+        "20:27 \u2014 L1 Network operations: Ravi",
+        "20:59 \u2014 L2 Network engineer: Kenji",
+        "21:24 \u2014 L3 Network architect: Sade"
+      ],
+      "incident_timestamp": "2026-02-01 20:24 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0062.md"
+  },
+  {
+    "ticket_id": "INC-2026-0063",
+    "primary": {
+      "resolution_steps": [
+        "Run rsync --dry-run -avz /mnt/primary/bucket1/",
+        "Set replication.delay to 300 in /etc/object-storage.conf",
+        "Restart object-storage service on node3",
+        "Verify disk health with smartctl -H /dev/sda"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The object storage bucket replication failed due to high disk latency.",
+      "key_command": "rsync --dry-run -avz /mnt/primary/bucket1/",
+      "escalation_path": [
+        "00:52 \u2014 L1 Platform support: Leila",
+        "01:13 \u2014 L2 Platform engineer: Hana"
+      ],
+      "incident_timestamp": "2026-03-26 00:45 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0063.md"
+  },
+  {
+    "ticket_id": "INC-2026-0064",
+    "primary": {
+      "resolution_steps": [
+        "Restart router with config file /etc/router/config.txt",
+        "Set BGP keepalive timer to 30 seconds",
+        "Update routing table with psql -U router -d routing_db -c 'UPDATE routes SET metric = 5'",
+        "Run MTR to verify WAN aggregation"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The BGP keepalive timer was set too low, causing router instability.",
+      "key_command": "mtr -r -c 10 8.8.8.8",
+      "escalation_path": [
+        "09:22 \u2014 L1 Network operations: Mei",
+        "09:32 \u2014 L2 Network engineer: Pavel",
+        "10:05 \u2014 L3 Network architect: Alice"
+      ],
+      "incident_timestamp": "2026-03-27 09:10 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0064.md"
+  },
+  {
+    "ticket_id": "INC-2026-0065",
+    "primary": {
+      "resolution_steps": [
+        "Restart MFA service on port 8080",
+        "Set timeout to 30 seconds in /etc/mfa/config.yaml",
+        "Increase log level to DEBUG in /var/log/mfa.log"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The MFA push-notification service timed out due to incorrect configuration.",
+      "key_command": "jwt.io decode token with --secret-key option",
+      "escalation_path": [
+        "02:16 \u2014 L1 Security operations: Ahmed",
+        "02:43 \u2014 L2 Security analyst: Alice",
+        "03:40 \u2014 L3 Security lead: Leila"
+      ],
+      "incident_timestamp": "2026-03-08 02:12 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0065.md"
+  },
+  {
+    "ticket_id": "INC-2026-0066",
+    "primary": {
+      "resolution_steps": [
+        "Set forwarder buffer size to 1024",
+        "Restart log aggregation service",
+        "Verify /var/log/config.json has correct output path"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The log aggregation forwarder buffer was too small, causing data loss.",
+      "key_command": "log-tail -f /var/log/forwarder.log",
+      "escalation_path": [
+        "04:33 \u2014 L1 SRE on-call: Carlos",
+        "05:01 \u2014 L2 SRE: Maya",
+        "05:52 \u2014 L3 SRE / incident commander: Greta",
+        "06:43 \u2014 On-call manager: Lukas"
+      ],
+      "incident_timestamp": "2026-03-21 04:27 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0066.md"
+  },
+  {
+    "ticket_id": "INC-2026-0067",
+    "primary": {
+      "resolution_steps": [
+        "Stop vault service on node 3",
+        "Run registry-gc with --debug flag",
+        "Set VAULT_ADDR to https://localhost:8200",
+        "Use broker-admin to revoke leases older than 3600s",
+        "Restart vault service with --log-level=DEBUG"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The secrets manager database became inconsistent due to a failed lease renewal.",
+      "key_command": "vault read -format=json /secret/path",
+      "escalation_path": [
+        "02:34 \u2014 L1 Platform support: Camille",
+        "02:56 \u2014 L2 Platform engineer: Tomas"
+      ],
+      "incident_timestamp": "2026-02-20 02:19 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0067.md"
+  },
+  {
+    "ticket_id": "INC-2026-0068",
+    "primary": {
+      "resolution_steps": [
+        "Restart metadata server on node 3",
+        "Set replication factor to 3 in /etc/metadata.conf",
+        "Run rsync --dry-run -avz /mnt/data/ /mnt/backup/",
+        "Verify disk health with smartctl -H /dev/sda"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The distributed filesystem metadata server experienced data corruption due to a failed disk.",
+      "key_command": "rsync --dry-run -avz /mnt/data/ /mnt/backup/",
+      "escalation_path": [
+        "07:40 \u2014 L1 Platform support: Dmitri",
+        "08:12 \u2014 L2 Platform engineer: Imani",
+        "08:33 \u2014 L3 Platform lead: Priya"
+      ],
+      "incident_timestamp": "2026-01-26 07:32 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0068.md"
+  },
+  {
+    "ticket_id": "INC-2026-0069",
+    "primary": {
+      "resolution_steps": [
+        "Restart coredns on node1 with --tls flag",
+        "Set cache size to 1000 in /etc/coredns/Corefile",
+        "Run stern -n default coredns to monitor logs",
+        "Update etcd cluster with new coredns config using etcdctl",
+        "Redeploy coredns helm chart with updated values"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The node-local DNS cache was misconfigured and exceeded its memory limit.",
+      "key_command": "etcdctl get /coredns/config",
+      "escalation_path": [
+        "20:42 \u2014 L1 Platform support: Dmitri",
+        "20:52 \u2014 L2 Platform engineer: Sade",
+        "21:37 \u2014 L3 Platform lead: Nikolai",
+        "22:20 \u2014 Service owner: Linnea"
+      ],
+      "incident_timestamp": "2026-03-12 20:34 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "long",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0069.md"
+  },
+  {
+    "ticket_id": "INC-2026-0070",
+    "primary": {
+      "resolution_steps": [
+        "Restart CNI plugin with etcdctl --endpoints=https://127.0.0.1:2379",
+        "Set bridgeMTU to 1500 in /etc/cni/net.d/10-mynet.conf",
+        "Run kustomize build with --load-restrictor=none flag",
+        "Verify pod connectivity using stern --namespace=default",
+        "Update etcd with etcdctl member add --cluster-id=1234"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The CNI plugin configuration was incorrectly set to use an MTU of 9000.",
+      "key_command": "etcdctl get /cni/config --endpoints=https://127.0.0.1:2379",
+      "escalation_path": [
+        "19:55 \u2014 L1 Platform support: Mark",
+        "20:15 \u2014 L2 Platform engineer: Kenji"
+      ],
+      "incident_timestamp": "2026-04-17 19:51 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0070.md"
+  },
+  {
+    "ticket_id": "INC-2026-0071",
+    "primary": {
+      "resolution_steps": [
+        "Restart nft with -f flag",
+        "Set iperf3 buffer to 128KB",
+        "Run Wireshark with -i any",
+        "Check for VIP routing loops",
+        "Adjust TTL to 50 on VIP interface"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Anycast VIP routing was misconfigured, causing packet loss.",
+      "key_command": "nft list table ip nat",
+      "escalation_path": [
+        "21:17 \u2014 L1 Network operations: Sade",
+        "21:54 \u2014 L2 Network engineer: Anya",
+        "22:28 \u2014 L3 Network architect: Diego"
+      ],
+      "incident_timestamp": "2026-04-18 21:10 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0071.md"
+  },
+  {
+    "ticket_id": "INC-2026-0072",
+    "primary": {
+      "resolution_steps": [
+        "Restart BGP service on router 10.1.1.1",
+        "Set hold time to 30 seconds in /etc/bgp.conf",
+        "Adjust keepalive interval to 10 seconds"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The BGP peering session timed out due to mismatched hold times.",
+      "key_command": "tcpdump -i eth0 port 179",
+      "escalation_path": [
+        "07:30 \u2014 L1 Network operations: Nora",
+        "08:00 \u2014 L2 Network engineer: Theo"
+      ],
+      "incident_timestamp": "2026-03-31 07:27 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0072.md"
+  },
+  {
+    "ticket_id": "INC-2026-0073",
+    "primary": {
+      "resolution_steps": [
+        "Restart replica on host 10.1.2.3",
+        "Set max_connections to 100 in postgresql.conf",
+        "Run ANALYZE on tables with high row count",
+        "Adjust wal_sender_timeout to 60 seconds",
+        "Verify replica lag with pg_stat_replication"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The read-replica pair experienced excessive lag due to insufficient connections.",
+      "key_command": "psql -c 'EXPLAIN ANALYZE SELECT * FROM large_table'",
+      "escalation_path": [
+        "04:35 \u2014 L1 Database operator: Eva",
+        "05:06 \u2014 L2 Database engineer: Mei",
+        "05:39 \u2014 L3 Database lead: Kai",
+        "06:22 \u2014 Service owner: Camille"
+      ],
+      "incident_timestamp": "2026-01-13 04:33 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0073.md"
+  },
+  {
+    "ticket_id": "INC-2026-0074",
+    "primary": {
+      "resolution_steps": [
+        "Restart metadata server on node 3 with --force-reload flag",
+        "Set replication_factor to 3 in /etc/distributed-fs.conf",
+        "Run rsync --dry-run -avz /mnt/data/ /mnt/backup/",
+        "Verify multipath -ll output for healthy paths to storage devices"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Metadata server node 3 failed to replicate data due to misconfigured replication factor.",
+      "key_command": "s3-style-cli ls -l --debug /mnt/data/",
+      "escalation_path": [
+        "17:27 \u2014 L1 Platform support: Maya",
+        "18:10 \u2014 L2 Platform engineer: Mark",
+        "19:09 \u2014 L3 Platform lead: Theo",
+        "20:11 \u2014 Service owner: Ines"
+      ],
+      "incident_timestamp": "2026-03-27 17:18 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0074.md"
+  },
+  {
+    "ticket_id": "INC-2026-0075",
+    "primary": {
+      "resolution_steps": [
+        "Restart etcd with --listen-peer-urls=http://localhost:2380",
+        "Set etcd quorum learn timeout to 15s in /etc/etcd/etcd.conf",
+        "Increase etcd log level to debug with --log-level=debug flag"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The etcd cluster lost quorum due to misconfigured peer URLs.",
+      "key_command": "kubectl get etcdcluster -o yaml",
+      "escalation_path": [
+        "15:40 \u2014 L1 Platform support: Kenji",
+        "16:04 \u2014 L2 Platform engineer: Mark"
+      ],
+      "incident_timestamp": "2026-02-03 15:30 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0075.md"
+  },
+  {
+    "ticket_id": "INC-2026-0076",
+    "primary": {
+      "resolution_steps": [
+        "Restart SAML gateway service on port 8443",
+        "Set IdP metadata refresh interval to 3600 seconds",
+        "Update pam-test config at /etc/pam.d/saml with debug flag",
+        "Validate SSL certificates using openssl s_client -connect localhost:8443",
+        "Increase session-trace log level to DEBUG at /var/log/saml-gw.log"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The SAML federation gateway failed to refresh IdP metadata due to expired SSL certificates.",
+      "key_command": "openssl s_client -connect localhost:8443 -showcerts",
+      "escalation_path": [
+        "17:38 \u2014 L1 Security operations: Rahul",
+        "18:03 \u2014 L2 Security analyst: Greta",
+        "18:46 \u2014 L3 Security lead: Felix",
+        "19:33 \u2014 Service owner: Kai"
+      ],
+      "incident_timestamp": "2026-02-10 17:26 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0076.md"
+  },
+  {
+    "ticket_id": "INC-2026-0077",
+    "primary": {
+      "resolution_steps": [
+        "Restart MFA service on port 8080",
+        "Set push_timeout to 30 seconds",
+        "Update ldapsearch query to filter on ou=users,dc=example,dc=com",
+        "Verify session-trace logs for errors at /var/log/session.log"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The MFA push-notification service timed out due to misconfigured ldapsearch queries.",
+      "key_command": "ldapsearch -x -H ldap://localhost:389 -b ou=users,dc=example,dc=com",
+      "escalation_path": [
+        "09:57 \u2014 L1 Security operations: Olu",
+        "10:12 \u2014 L2 Security analyst: Diego"
+      ],
+      "incident_timestamp": "2026-04-03 09:49 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0077.md"
+  },
+  {
+    "ticket_id": "INC-2026-0078",
+    "primary": {
+      "resolution_steps": [
+        "Restart DNS server with flag --dns-port=53",
+        "Set registry key dns.cache.ttl to 300",
+        "Run registry-gc with --dry-run=false",
+        "Clear cache at /var/dns/cache",
+        "Verify runner-logs for successful restart"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The internal DNS server failed to start due to incorrect configuration.",
+      "key_command": "dig +short dns.server.ip",
+      "escalation_path": [
+        "13:47 \u2014 L1 Platform support: Theo",
+        "14:06 \u2014 L2 Platform engineer: Camille"
+      ],
+      "incident_timestamp": "2026-01-21 13:40 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "medium",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0078.md"
+  },
+  {
+    "ticket_id": "INC-2026-0079",
+    "primary": {
+      "resolution_steps": [
+        "Restart TSDB with --storage.path=/var/metrics",
+        "Set retention policy to 30d in /etc/metrics/config.yml",
+        "Run promtool to compact storage at /var/metrics/series",
+        "Verify disk space usage on /var/metrics is below 80%"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The long-term metrics storage exceeded its retention period and filled the disk.",
+      "key_command": "log-tail -f /var/log/metrics/error.log",
+      "escalation_path": [
+        "06:25 \u2014 L1 SRE on-call: Hiro",
+        "06:52 \u2014 L2 SRE: Anya",
+        "07:36 \u2014 L3 SRE / incident commander: Mark"
+      ],
+      "incident_timestamp": "2026-03-22 06:14 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0079.md"
+  },
+  {
+    "ticket_id": "INC-2026-0080",
+    "primary": {
+      "resolution_steps": [
+        "Set idle_timeout to 300 in /etc/oidc/config.yaml",
+        "Restart oidc_service with --debug flag",
+        "Update pam_oidc.conf with clock_skew=120",
+        "Verify session expiration with ldapsearch -x -H ldap://localhost:389"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The OIDC identity provider misconfigured idle_timeout caused session expirations.",
+      "key_command": "ldapsearch -x -H ldap://localhost:389 -D cn=admin,dc=example,dc=com",
+      "escalation_path": [
+        "19:55 \u2014 L1 Security operations: Liu",
+        "20:16 \u2014 L2 Security analyst: Ines",
+        "20:49 \u2014 L3 Security lead: Theo",
+        "21:31 \u2014 Service owner: Iris"
+      ],
+      "incident_timestamp": "2026-02-15 19:51 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0080.md"
+  },
+  {
+    "ticket_id": "INC-2026-0081",
+    "primary": {
+      "resolution_steps": [
+        "Restart CNI plugin with --cni-conf-dir=/etc/cni/net.d",
+        "Set bridge.batch.size to 32 in /etc/cni/net.d/10-mynet.conf",
+        "Apply new config with kustomize build /path/to/config",
+        "Verify pods can connect using crictl exec -it <pod_id> ping 8.8.8.8"
+      ]
+    },
+    "bonus": {
+      "root_cause": "CNI plugin misconfiguration caused network instability.",
+      "key_command": "kubectl get pods -o yaml | grep -i cni",
+      "escalation_path": [
+        "07:40 \u2014 L1 Platform support: Linnea",
+        "07:56 \u2014 L2 Platform engineer: Tomas",
+        "08:37 \u2014 L3 Platform lead: Bashir",
+        "10:00 \u2014 On-call manager: Theo"
+      ],
+      "incident_timestamp": "2026-04-04 07:29 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0081.md"
+  },
+  {
+    "ticket_id": "INC-2026-0082",
+    "primary": {
+      "resolution_steps": [
+        "Set OIDC issuer URL to https://idp.example.com",
+        "Update client ID to 1234567890 in /etc/oidc/config.json",
+        "Restart auth service with --debug flag",
+        "Verify token signature with openssl s_client -connect idp.example.com:443"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The OIDC identity provider certificate expired yesterday.",
+      "key_command": "openssl s_client -connect idp.example.com:443",
+      "escalation_path": [
+        "01:37 \u2014 L1 Security operations: Sara",
+        "02:19 \u2014 L2 Security analyst: Kai",
+        "02:50 \u2014 L3 Security lead: Sofia",
+        "04:18 \u2014 Service owner: Anya"
+      ],
+      "incident_timestamp": "2026-01-28 01:24 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0082.md"
+  },
+  {
+    "ticket_id": "INC-2026-0083",
+    "primary": {
+      "resolution_steps": [
+        "Set net.netfilter.nf_conntrack_max to 262144",
+        "Shorten UDP timeout to 10s in conntrack config",
+        "Reload conntrack module with new settings",
+        "Verify conntrack table size with sysctl -p"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Conntrack table on stateful firewall was exhausted under burst load, dropping new UDP/53 flows.",
+      "key_command": "tcpdump -i any -n -vv -s 0 -c 100 port 53",
+      "escalation_path": [
+        "09:04 \u2014 L1 Network operations: Nina",
+        "09:36 \u2014 L2 Network engineer: Alice",
+        "10:01 \u2014 L3 Network architect: Tomas"
+      ],
+      "incident_timestamp": "2026-04-17 08:50 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": "dns_latency"
+    },
+    "file": "INC-2026-0083.md"
+  },
+  {
+    "ticket_id": "INC-2026-0084",
+    "primary": {
+      "resolution_steps": [
+        "Update idp-metadata.xml at /etc/saml/config to reflect new certificate",
+        "Set verify_cert to true in /etc/saml/settings.json",
+        "Restart saml-gateway service with --debug flag",
+        "Run pam-test with --saml2 option to verify authentication",
+        "Use ldapsearch to ensure user attributes match SAML claims"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The SAML federation gateway failed to verify the identity provider's certificate.",
+      "key_command": "ldapsearch -x -D cn=admin,dc=example,dc=com -W -b dc=example,dc=com",
+      "escalation_path": [
+        "11:16 \u2014 L1 Security operations: Nikolai",
+        "11:57 \u2014 L2 Security analyst: Bruno",
+        "12:42 \u2014 L3 Security lead: Mateo",
+        "13:56 \u2014 Service owner: Leila"
+      ],
+      "incident_timestamp": "2026-02-16 11:09 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0084.md"
+  },
+  {
+    "ticket_id": "INC-2026-0085",
+    "primary": {
+      "resolution_steps": [
+        "Restart BGP service on router 10.1.1.1",
+        "Set hold time to 30 seconds in bgp.conf",
+        "Adjust keepalive interval to 10 seconds",
+        "Verify peer IP 10.2.2.2 is reachable via MTR"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The BGP peering session failed due to a mismatched hold timer.",
+      "key_command": "nslookup -type=txt 10.2.2.2",
+      "escalation_path": [
+        "16:01 \u2014 L1 Network operations: Maya",
+        "16:31 \u2014 L2 Network engineer: Nina",
+        "17:17 \u2014 L3 Network architect: Kenji"
+      ],
+      "incident_timestamp": "2026-02-14 15:56 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0085.md"
+  },
+  {
+    "ticket_id": "INC-2026-0086",
+    "primary": {
+      "resolution_steps": [
+        "Restart tsdb service with --config.file=/etc/tsdb.conf",
+        "Set global.retention_period to 30d in /etc/tsdb.conf",
+        "Run tsdb-cli repair on /var/lib/tsdb/data",
+        "Verify metric ingestion with promtool query 'rate(metric[1m])'"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The metrics ingestion pipeline failed due to outdated retention settings.",
+      "key_command": "tsdb-cli inspect /var/lib/tsdb/data --check-integrity",
+      "escalation_path": [
+        "08:19 \u2014 L1 SRE on-call: Leila",
+        "08:41 \u2014 L2 SRE: Liu",
+        "09:10 \u2014 L3 SRE / incident commander: Nikolai"
+      ],
+      "incident_timestamp": "2026-01-08 08:12 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0086.md"
+  },
+  {
+    "ticket_id": "INC-2026-0087",
+    "primary": {
+      "resolution_steps": [
+        "Restart load balancer with -c 4 option",
+        "Set timeout to 30 seconds in /etc/lb/config",
+        "Increase buffer size to 1024KB",
+        "Disable keepalive with --no-keepalive flag"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The edge load balancer was misconfigured with too low buffer size.",
+      "key_command": "iperf3 -c lb.example.com -p 80",
+      "escalation_path": [
+        "04:33 \u2014 L1 Network operations: Olu",
+        "05:16 \u2014 L2 Network engineer: Sade",
+        "05:56 \u2014 L3 Network architect: Rafael",
+        "07:17 \u2014 Service owner: Iris"
+      ],
+      "incident_timestamp": "2026-01-08 04:20 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0087.md"
+  },
+  {
+    "ticket_id": "INC-2026-0088",
+    "primary": {
+      "resolution_steps": [
+        "Set archive policy retention days to 365",
+        "Run s3-cli sync on /mnt/archive with --delete flag",
+        "Verify iostat output for disk utilization below 80%",
+        "Adjust smartctl scheduled scan interval to 86400 seconds"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The archive lifecycle policy was not properly configured to manage storage capacity.",
+      "key_command": "iostat -d /dev/sda 10 5",
+      "escalation_path": [
+        "11:09 \u2014 L1 Platform support: Alice",
+        "11:41 \u2014 L2 Platform engineer: Aisha"
+      ],
+      "incident_timestamp": "2026-02-27 10:55 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0088.md"
+  },
+  {
+    "ticket_id": "INC-2026-0089",
+    "primary": {
+      "resolution_steps": [
+        "Stop directory replication service on node 1",
+        "Set replication interval to 300 seconds in /etc/directory/replication.conf",
+        "Restart directory replication service on node 1",
+        "Verify replication status with ldapsearch -H ldaps://node2:636 -D cn=admin -w password"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Directory replication failed due to misconfigured interval.",
+      "key_command": "ldapsearch -H ldaps://node1:636 -D cn=admin -w password -b dc=example,dc=com",
+      "escalation_path": [
+        "00:33 \u2014 L1 Security operations: Tara",
+        "00:52 \u2014 L2 Security analyst: Diego"
+      ],
+      "incident_timestamp": "2026-04-28 00:22 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0089.md"
+  },
+  {
+    "ticket_id": "INC-2026-0090",
+    "primary": {
+      "resolution_steps": [
+        "Set DNS_CACHE_TTL to 300 in /etc/dns/config",
+        "Restart dns-server on node 10.0.1.5",
+        "Update vault with new DNS_SERVER_IP at path secret/dns",
+        "Run flag-history to verify --dns-cache-ttl flag",
+        "Verify dns-server logs at /var/log/dns/server.log"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The internal DNS cache expiration was set too low, causing frequent refresh failures.",
+      "key_command": "dig +short example.service @10.0.1.5",
+      "escalation_path": [
+        "00:26 \u2014 L1 Platform support: Otto",
+        "01:10 \u2014 L2 Platform engineer: Mark"
+      ],
+      "incident_timestamp": "2026-03-15 00:24 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0090.md"
+  },
+  {
+    "ticket_id": "INC-2026-0091",
+    "primary": {
+      "resolution_steps": [
+        "Restart tracing collector on node 12",
+        "Set max_samples to 1000 in /etc/tracing/config.yaml",
+        "Increase memory limit to 4G for tracing collector pod",
+        "Update tsdb retention period to 30d using tsdb-cli"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The tracing collector ran out of memory due to excessive sample collection.",
+      "key_command": "tsdb-cli inspect --path /var/lib/tsdb",
+      "escalation_path": [
+        "09:19 \u2014 L1 SRE on-call: Sara",
+        "09:34 \u2014 L2 SRE: Mei",
+        "10:32 \u2014 L3 SRE / incident commander: Hiro",
+        "11:19 \u2014 Service owner: Jonas"
+      ],
+      "incident_timestamp": "2026-01-11 09:07 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "long",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0091.md"
+  },
+  {
+    "ticket_id": "INC-2026-0092",
+    "primary": {
+      "resolution_steps": [
+        "Restart multipathd service with debug flag",
+        "Set multipath.conf max_polling_interval to 10",
+        "Update /etc/multipath.conf alias to match WWID 3600508e0000000000e13955cc3756d70",
+        "Reload multipath maps with multipath -r"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The SAN multipath driver failed to properly configure paths due to outdated configuration.",
+      "key_command": "multipath -ll",
+      "escalation_path": [
+        "23:19 \u2014 L1 Platform support: Sven",
+        "23:43 \u2014 L2 Platform engineer: Mateo",
+        "00:30 \u2014 L3 Platform lead: Amelia"
+      ],
+      "incident_timestamp": "2026-01-09 23:05 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0092.md"
+  },
+  {
+    "ticket_id": "INC-2026-0093",
+    "primary": {
+      "resolution_steps": [
+        "Restart message broker with --max-connections 500",
+        "Set broker.config.max_message_size to 10240",
+        "Update vault at path /config/broker with new connection limits",
+        "Clear flag --enable-flow-control to prevent further backpressure"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Message broker overwhelmed due to exceeded connection limits.",
+      "key_command": "vault read /config/broker | grep max_connections",
+      "escalation_path": [
+        "03:32 \u2014 L1 Platform support: Sven",
+        "03:42 \u2014 L2 Platform engineer: Alice"
+      ],
+      "incident_timestamp": "2026-05-05 03:24 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0093.md"
+  },
+  {
+    "ticket_id": "INC-2026-0094",
+    "primary": {
+      "resolution_steps": [
+        "Restart synthetic-probe runner with --debug flag",
+        "Set tsdb-cli query timeout to 30000ms",
+        "Increase log level to DEBUG for probe-runner module",
+        "Verify trace-query result count exceeds 1000",
+        "Adjust tsdb-cli cache size to 512MB"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The synthetic-probe runner exceeded its default query timeout.",
+      "key_command": "log-tail --follow /var/log/probe-runner.log",
+      "escalation_path": [
+        "22:11 \u2014 L1 SRE on-call: Olu",
+        "22:38 \u2014 L2 SRE: Carlos",
+        "23:09 \u2014 L3 SRE / incident commander: Sven"
+      ],
+      "incident_timestamp": "2026-03-17 22:07 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0094.md"
+  },
+  {
+    "ticket_id": "INC-2026-0095",
+    "primary": {
+      "resolution_steps": [
+        "Set MPLS label range to 1000-2000",
+        "Restart L3VPN service on router 10.1.1.1",
+        "Configure BGP timer to 30 seconds on router 10.1.1.2",
+        "Verify VPN route propagation with dig +short 10.2.2.2"
+      ]
+    },
+    "bonus": {
+      "root_cause": "MPLS label range was exhausted due to misconfigured L3VPN.",
+      "key_command": "tcpdump -i any -n -vv -s 0 -c 100 port 179",
+      "escalation_path": [
+        "13:59 \u2014 L1 Network operations: Yuki",
+        "14:14 \u2014 L2 Network engineer: Maya"
+      ],
+      "incident_timestamp": "2026-02-21 13:44 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0095.md"
+  },
+  {
+    "ticket_id": "INC-2026-0096",
+    "primary": {
+      "resolution_steps": [
+        "Restart runner with --max-retries 5",
+        "Set registry_gc_interval to 30m",
+        "Run broker-admin with --purge-inactive",
+        "Check runner-logs for error patterns",
+        "Adjust ci_runner_pool_size to 10"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The CI runner pool was overwhelmed by too many concurrent jobs.",
+      "key_command": "registry-gc -v",
+      "escalation_path": [
+        "15:28 \u2014 L1 Platform support: Maya",
+        "15:53 \u2014 L2 Platform engineer: Iris"
+      ],
+      "incident_timestamp": "2026-03-01 15:22 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0096.md"
+  },
+  {
+    "ticket_id": "INC-2026-0097",
+    "primary": {
+      "resolution_steps": [
+        "Restart secrets manager with --force-reload flag",
+        "Set max_connections to 100 in /etc/secrets-manager/config.yaml",
+        "Run registry-gc with --dry-run flag to identify unused secrets",
+        "Remove expired secrets using broker-admin --purge-expired",
+        "Verify runner-logs for successful secret rotation"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The secrets manager exceeded its connection limit due to unreclaimed database connections.",
+      "key_command": "kubectl logs secrets-manager -c manager | grep 'max connections'",
+      "escalation_path": [
+        "07:12 \u2014 L1 Platform support: Camille",
+        "07:45 \u2014 L2 Platform engineer: Maya"
+      ],
+      "incident_timestamp": "2026-03-11 07:11 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0097.md"
+  },
+  {
+    "ticket_id": "INC-2026-0098",
+    "primary": {
+      "resolution_steps": [
+        "Restart ingress controller with --v=5 flag",
+        "Set maxConnections to 1000 in /etc/ingress/config.yaml",
+        "Update kustomize config to include ingress-controller patch"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Ingress controller was misconfigured with too low connection limits.",
+      "key_command": "k9s get ingress --all-namespaces -o yaml",
+      "escalation_path": [
+        "16:58 \u2014 L1 Platform support: Mei",
+        "17:33 \u2014 L2 Platform engineer: Rahul",
+        "18:33 \u2014 L3 Platform lead: Pavel"
+      ],
+      "incident_timestamp": "2026-01-02 16:56 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0098.md"
+  },
+  {
+    "ticket_id": "INC-2026-0099",
+    "primary": {
+      "resolution_steps": [
+        "Restart storage node 3",
+        "Set replication_factor to 3 in /etc/storage/config.yaml",
+        "Run multipath -ll to verify path redundancy",
+        "Check iostat -x for disk utilization above 80%",
+        "Verify bucket replication with s3cmd sync --stat"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The object storage bucket replication failed due to insufficient redundancy.",
+      "key_command": "multipath -ll",
+      "escalation_path": [
+        "00:47 \u2014 L1 Platform support: Maya",
+        "01:27 \u2014 L2 Platform engineer: Imani"
+      ],
+      "incident_timestamp": "2026-02-27 00:32 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0099.md"
+  },
+  {
+    "ticket_id": "INC-2026-0100",
+    "primary": {
+      "resolution_steps": [
+        "Restart ingress controller with --v=5 flag",
+        "Set maxConnections to 1000 in /etc/ingress/config.yaml",
+        "Run etcdctl get /ingress/config --prefix --keys-only",
+        "Update kustomize config to include ingress patch"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Ingress controller misconfiguration caused connection overload.",
+      "key_command": "stern -n ingress-namespace ingress-controller",
+      "escalation_path": [
+        "01:11 \u2014 L1 Platform support: Jonas",
+        "01:38 \u2014 L2 Platform engineer: Bruno",
+        "02:28 \u2014 L3 Platform lead: Rafael"
+      ],
+      "incident_timestamp": "2026-04-29 00:59 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0100.md"
+  },
+  {
+    "ticket_id": "INC-2026-0101",
+    "primary": {
+      "resolution_steps": [
+        "Restart feature-flag service on node 3",
+        "Set cache ttl to 300 in /etc/flag/config.yaml",
+        "Run registry-gc with --dry-run flag to identify stale entries",
+        "Remove outdated flags using vault-style CLI with --purge option",
+        "Update flag-history retention period to 90 days in /etc/flag/history.conf"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The feature-flag service cache was not properly updated due to a misconfigured ttl value.",
+      "key_command": "vault read -format=json /secret/feature/flags",
+      "escalation_path": [
+        "11:58 \u2014 L1 Platform support: Sofia",
+        "12:27 \u2014 L2 Platform engineer: Iris",
+        "12:58 \u2014 L3 Platform lead: Greta"
+      ],
+      "incident_timestamp": "2026-03-30 11:53 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0101.md"
+  },
+  {
+    "ticket_id": "INC-2026-0102",
+    "primary": {
+      "resolution_steps": [
+        "Set max connections to 200 in pg_hba.conf",
+        "Restart database service on read-replica pair",
+        "Configure connection pooler with 50 idle connections",
+        "Update batch job to use connection pooler on localhost:5432"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Background job opened many short-lived connections that exhausted the per-IP connection limit of 50.",
+      "key_command": "psql -c 'SELECT * FROM pg_stat_activity WHERE state = \"idle\";'",
+      "escalation_path": [
+        "03:00 \u2014 L1 Database operator: Hiro",
+        "03:19 \u2014 L2 Database engineer: Amelia",
+        "03:49 \u2014 L3 Database lead: Liu"
+      ],
+      "incident_timestamp": "2026-03-04 02:46 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": "db_conn_drops"
+    },
+    "file": "INC-2026-0102.md"
+  },
+  {
+    "ticket_id": "INC-2026-0103",
+    "primary": {
+      "resolution_steps": [
+        "Restart broker with --max-connections=500",
+        "Set broker.config.max_message_size to 10240",
+        "Run registry-gc --dry-run --broker=localhost:9092",
+        "Verify broker-admin --check-connections reports < 400"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The shared message broker exceeded its connection limit.",
+      "key_command": "broker-admin --check-connections",
+      "escalation_path": [
+        "12:12 \u2014 L1 Platform support: Hiro",
+        "12:55 \u2014 L2 Platform engineer: Carlos",
+        "13:15 \u2014 L3 Platform lead: Bashir",
+        "14:23 \u2014 Service owner: Lukas"
+      ],
+      "incident_timestamp": "2026-02-13 12:05 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0103.md"
+  },
+  {
+    "ticket_id": "INC-2026-0104",
+    "primary": {
+      "resolution_steps": [
+        "Restart node-local DNS cache on each worker node",
+        "Set dnsCacheSize to 1000 in /etc/kubernetes/dns.conf",
+        "Run etcdctl get /registry/services/endpoints --prefix=true",
+        "Verify node-local DNS cache configuration with kustomize build",
+        "Increase log level for node-local DNS cache to 5"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The node-local DNS cache was overloaded due to excessive queries.",
+      "key_command": "kubectl get pods -n kube-system -l k8s-app=kube-dns",
+      "escalation_path": [
+        "23:51 \u2014 L1 Platform support: Mateo",
+        "00:26 \u2014 L2 Platform engineer: Nina",
+        "00:51 \u2014 L3 Platform lead: Olu",
+        "01:54 \u2014 Service owner: Tara"
+      ],
+      "incident_timestamp": "2026-03-24 23:50 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0104.md"
+  },
+  {
+    "ticket_id": "INC-2026-0105",
+    "primary": {
+      "resolution_steps": [
+        "Restart dns-resolver service on node 10.0.1.100",
+        "Set max_cache_size to 10000 in /etc/dns/resolver.conf",
+        "Increase worker_threads to 8 in /etc/dns/resolver.conf",
+        "Run tcpdump -i eth0 port 53 to verify DNS traffic"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The recursive DNS resolver cluster experienced high latency due to insufficient cache size and worker threads.",
+      "key_command": "dig +short example.com @10.0.1.100",
+      "escalation_path": [
+        "18:31 \u2014 L1 Network operations: Kai",
+        "18:42 \u2014 L2 Network engineer: Zara"
+      ],
+      "incident_timestamp": "2026-02-10 18:18 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0105.md"
+  },
+  {
+    "ticket_id": "INC-2026-0106",
+    "primary": {
+      "resolution_steps": [
+        "Set tsdb.retention.period to 30d",
+        "Run tsdb-cli with --repair flag",
+        "Restart tsdb service on node 10.0.1.5",
+        "Verify tsdb data dir /var/lib/tsdb has 20G free space"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The long-term metrics storage exceeded its allocated disk space.",
+      "key_command": "tsdb-cli --query 'select * from metrics where time > now() - 30d'",
+      "escalation_path": [
+        "05:51 \u2014 L1 SRE on-call: Jonas",
+        "06:03 \u2014 L2 SRE: Mei",
+        "06:37 \u2014 L3 SRE / incident commander: Liu",
+        "08:00 \u2014 Engineering manager: Alice"
+      ],
+      "incident_timestamp": "2026-04-25 05:40 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0106.md"
+  },
+  {
+    "ticket_id": "INC-2026-0107",
+    "primary": {
+      "resolution_steps": [
+        "Restart WAL archive process with archive_timeout=60s",
+        "Set wal_sender_timeout to 30s in postgresql.conf",
+        "Increase max_wal_senders to 5 in postgresql.conf",
+        "Verify archive_command points to valid directory /var/lib/pgsql/archive"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The WAL archive process failed due to excessive timeouts and insufficient sender resources.",
+      "key_command": "pidstat -p $(pgrep archive) 1 10",
+      "escalation_path": [
+        "08:20 \u2014 L1 Database operator: Lukas",
+        "08:55 \u2014 L2 Database engineer: Felix"
+      ],
+      "incident_timestamp": "2026-03-14 08:06 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0107.md"
+  },
+  {
+    "ticket_id": "INC-2026-0108",
+    "primary": {
+      "resolution_steps": [
+        "Restart kubelet on node-1",
+        "Set --max-pods to 100 in /etc/kubernetes/kubelet.conf",
+        "Run crictl stopp 1234567890ab to free up resources",
+        "Verify etcdctl member list shows node-1 as healthy"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The kubelet on node-1 failed to restart after a config change.",
+      "key_command": "crictl logs -n 1234567890ab",
+      "escalation_path": [
+        "01:08 \u2014 L1 Platform support: Mark",
+        "01:25 \u2014 L2 Platform engineer: Yuki"
+      ],
+      "incident_timestamp": "2026-02-04 01:01 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0108.md"
+  },
+  {
+    "ticket_id": "INC-2026-0109",
+    "primary": {
+      "resolution_steps": [
+        "Restart metadata server on node 3",
+        "Set fs.metadata.replica.count to 5",
+        "Run fio with --numjobs=10 on /mnt/data",
+        "Verify disk usage with iostat -x on /dev/sda1"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Metadata server failed to replicate due to insufficient replicas.",
+      "key_command": "fio --readwrite=randrw --size=1G /mnt/data",
+      "escalation_path": [
+        "04:14 \u2014 L1 Platform support: Imani",
+        "04:31 \u2014 L2 Platform engineer: Mark",
+        "05:27 \u2014 L3 Platform lead: Lukas"
+      ],
+      "incident_timestamp": "2026-05-03 04:10 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0109.md"
+  },
+  {
+    "ticket_id": "INC-2026-0110",
+    "primary": {
+      "resolution_steps": [
+        "Set pool_resize_grace_window to 60s",
+        "Disable health_check_kill_idle_connections",
+        "Restart pooler service with new config",
+        "Verify idle connection eviction with pg_stat_activity"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Pooler health-check killed idle backends mid-transaction during a graceful pool resize.",
+      "key_command": "psql -c \"SELECT * FROM pg_stat_activity WHERE state = 'idle'\"",
+      "escalation_path": [
+        "11:39 \u2014 L1 Database operator: Priya",
+        "12:24 \u2014 L2 Database engineer: Alice"
+      ],
+      "incident_timestamp": "2026-03-14 11:36 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": "db_conn_drops"
+    },
+    "file": "INC-2026-0110.md"
+  },
+  {
+    "ticket_id": "INC-2026-0111",
+    "primary": {
+      "resolution_steps": [
+        "Restart message broker with --max-connections 500",
+        "Set vault.broker.max-inflight to 2000 in /etc/broker/config",
+        "Run registry-gc with --dry-run to identify unused topics",
+        "Remove unused topics with vault topic delete --force",
+        "Adjust runner-log retention to 30 days with --log-retain 30d"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Message broker crashed due to exceeding maximum connections.",
+      "key_command": "kubectl logs broker -c message-broker | grep 'max connections'",
+      "escalation_path": [
+        "03:51 \u2014 L1 Platform support: Imani",
+        "04:18 \u2014 L2 Platform engineer: Tomas"
+      ],
+      "incident_timestamp": "2026-01-05 03:40 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0111.md"
+  },
+  {
+    "ticket_id": "INC-2026-0112",
+    "primary": {
+      "resolution_steps": [
+        "Set ttl to 128 on the anycast VIP",
+        "Restart routing daemon with -d flag",
+        "Verify BGP session timeout is 30 seconds",
+        "Run iperf3 with -c 10.0.0.1 -u -b 100M"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The anycast VIP ttl was set too low, causing packet loss.",
+      "key_command": "tcpdump -i any -n -vv -s 0 -c 100 port 179",
+      "escalation_path": [
+        "18:45 \u2014 L1 Network operations: Mateo",
+        "19:24 \u2014 L2 Network engineer: Aisha",
+        "20:10 \u2014 L3 Network architect: Imani",
+        "21:39 \u2014 Engineering manager: Felix"
+      ],
+      "incident_timestamp": "2026-04-17 18:36 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0112.md"
+  },
+  {
+    "ticket_id": "INC-2026-0113",
+    "primary": {
+      "resolution_steps": [
+        "Restart SAML gateway service with debug flag",
+        "Set idle_timeout to 30 minutes in saml_config.xml",
+        "Update trusted_certificates.pem with new CA certificate",
+        "Validate SAML response signature with pam-test tool"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The SAML federation gateway failed to authenticate users due to expired certificates.",
+      "key_command": "openssl s_client -connect saml-gateway:443 -showcerts",
+      "escalation_path": [
+        "14:20 \u2014 L1 Security operations: Iris",
+        "15:01 \u2014 L2 Security analyst: Mei",
+        "15:54 \u2014 L3 Security lead: Tara"
+      ],
+      "incident_timestamp": "2026-01-02 14:16 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0113.md"
+  },
+  {
+    "ticket_id": "INC-2026-0114",
+    "primary": {
+      "resolution_steps": [
+        "Set initialDelaySeconds on liveness probe to 60s",
+        "Add separate startupProbe with failureThreshold 3",
+        "Update deployment config with kustomize edit",
+        "Apply new config with kubectl apply -f deploy.yaml",
+        "Verify etcd cluster stability with etcdctl member list"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Liveness probe interval was shorter than container startup time, causing premature kill.",
+      "key_command": "kubectl describe pod -n default | grep Liveness",
+      "escalation_path": [
+        "06:52 \u2014 L1 Platform support: Eva",
+        "07:15 \u2014 L2 Platform engineer: Ahmed"
+      ],
+      "incident_timestamp": "2026-03-12 06:41 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": "pod_crashloop"
+    },
+    "file": "INC-2026-0114.md"
+  },
+  {
+    "ticket_id": "INC-2026-0115",
+    "primary": {
+      "resolution_steps": [
+        "Restart router with ID 123",
+        "Set BGP timer to 30 seconds",
+        "Update anycast VIP to 192.168.1.100",
+        "Verify route propagation with dig +trace"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The anycast VIP route was not properly propagated due to a BGP timer misconfiguration.",
+      "key_command": "dig +trace 192.168.1.100",
+      "escalation_path": [
+        "07:12 \u2014 L1 Network operations: Ines",
+        "07:52 \u2014 L2 Network engineer: Mei"
+      ],
+      "incident_timestamp": "2026-02-08 07:10 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0115.md"
+  },
+  {
+    "ticket_id": "INC-2026-0116",
+    "primary": {
+      "resolution_steps": [
+        "Set edns-buffer-size to 1232 in /etc/resolver.conf",
+        "Restart the resolver daemon with systemctl restart resolver",
+        "Verify new buffer size with dig +ednsopt=1232 example.com",
+        "Flush resolver cache with rndc flush"
+      ]
+    },
+    "bonus": {
+      "root_cause": "EDNS0 buffer size mismatch caused fragmentation that the upstream resolver dropped silently.",
+      "key_command": "dig +ednsopt=4096 example.com",
+      "escalation_path": [
+        "11:23 \u2014 L1 Network operations: Leila",
+        "11:35 \u2014 L2 Network engineer: Dmitri",
+        "12:15 \u2014 L3 Network architect: Sofia"
+      ],
+      "incident_timestamp": "2026-03-31 11:14 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": "dns_latency"
+    },
+    "file": "INC-2026-0116.md"
+  },
+  {
+    "ticket_id": "INC-2026-0117",
+    "primary": {
+      "resolution_steps": [
+        "Set autovacuum_vacuum_scale_factor to 0.1",
+        "Increase autovacuum_vacuum_threshold to 1000",
+        "Restart autovacuum daemon with -d option",
+        "Adjust pidstat sampling interval to 10 seconds",
+        "Set log_autovacuum_min_duration to 100ms in psql"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The autovacuum daemon was not able to keep up with transaction volume.",
+      "key_command": "psql -c 'SHOW autovacuum_vacuum_scale_factor;'",
+      "escalation_path": [
+        "20:43 \u2014 L1 Database operator: Rafael",
+        "21:05 \u2014 L2 Database engineer: Otto",
+        "21:57 \u2014 L3 Database lead: Sara",
+        "23:05 \u2014 On-call manager: Linnea"
+      ],
+      "incident_timestamp": "2026-03-26 20:29 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0117.md"
+  },
+  {
+    "ticket_id": "INC-2026-0118",
+    "primary": {
+      "resolution_steps": [
+        "Restart coredns with --cache-size=1000",
+        "Set dns-cache-ttl to 300 in /etc/coredns/Corefile",
+        "Run etcdctl get /registry/services/local/dns --prefix",
+        "Verify cache metrics with stern -n kube-system coredns"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The node-local DNS cache became overloaded due to excessive queries.",
+      "key_command": "helm get values coredns --show-values",
+      "escalation_path": [
+        "19:14 \u2014 L1 Platform support: Nikolai",
+        "19:36 \u2014 L2 Platform engineer: Iris"
+      ],
+      "incident_timestamp": "2026-02-20 19:12 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0118.md"
+  },
+  {
+    "ticket_id": "INC-2026-0119",
+    "primary": {
+      "resolution_steps": [
+        "Restart OIDC service with debug logging enabled",
+        "Set max_token_lifespan to 3600 in oidc_config.json",
+        "Update ldapsearch query to include required user attributes",
+        "Validate JWT tokens using an online decoder tool",
+        "Adjust pam-test configuration to use the correct OIDC endpoint"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The OIDC identity provider was misconfigured with an incorrect token lifespan.",
+      "key_command": "ldapsearch -x -D cn=admin,dc=example,dc=com -W -b dc=example,dc=com",
+      "escalation_path": [
+        "22:57 \u2014 L1 Security operations: Mark",
+        "23:42 \u2014 L2 Security analyst: Nikolai",
+        "00:13 \u2014 L3 Security lead: Tara",
+        "01:21 \u2014 On-call manager: Sofia"
+      ],
+      "incident_timestamp": "2026-03-31 22:56 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0119.md"
+  },
+  {
+    "ticket_id": "INC-2026-0120",
+    "primary": {
+      "resolution_steps": [
+        "Set retention period to 30d in tsdb.conf",
+        "Run tsdb-cli with --repair flag",
+        "Restart tsdb service on node1",
+        "Verify disk space on /var/lib/tsdb",
+        "Adjust log level to DEBUG in log4j.properties"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The long-term metrics storage exceeded its allocated disk space.",
+      "key_command": "tsdb-cli --check-integrity",
+      "escalation_path": [
+        "01:56 \u2014 L1 SRE on-call: Pavel",
+        "02:38 \u2014 L2 SRE: Imani",
+        "03:13 \u2014 L3 SRE / incident commander: Priya",
+        "04:43 \u2014 On-call manager: Greta"
+      ],
+      "incident_timestamp": "2026-05-03 01:48 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0120.md"
+  },
+  {
+    "ticket_id": "INC-2026-0121",
+    "primary": {
+      "resolution_steps": [
+        "Restart ingress controller pod 7",
+        "Set max-worker-connections to 10 in /etc/ingress/config.yaml",
+        "Update etcd key /ingress/controllers/active to true"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The ingress controller failed to sync its configuration due to a stale etcd entry.",
+      "key_command": "etcdctl get /ingress/controllers/active",
+      "escalation_path": [
+        "19:29 \u2014 L1 Platform support: Pavel",
+        "20:05 \u2014 L2 Platform engineer: Bashir",
+        "20:38 \u2014 L3 Platform lead: Mei"
+      ],
+      "incident_timestamp": "2026-05-08 19:18 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0121.md"
+  },
+  {
+    "ticket_id": "INC-2026-0122",
+    "primary": {
+      "resolution_steps": [
+        "Restart directory replication service on node 3",
+        "Set replication interval to 300 seconds in /etc/dirsync.conf",
+        "Increase debug log level to 5 in /etc/dirsync.conf",
+        "Run pam-test with --verbose flag to verify auth config"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Directory replication failed due to misconfigured SSL certificates.",
+      "key_command": "openssl s_client -connect dirsync-server:636 -showcerts",
+      "escalation_path": [
+        "06:37 \u2014 L1 Security operations: Nora",
+        "06:53 \u2014 L2 Security analyst: Aisha"
+      ],
+      "incident_timestamp": "2026-03-14 06:22 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0122.md"
+  },
+  {
+    "ticket_id": "INC-2026-0123",
+    "primary": {
+      "resolution_steps": [
+        "Set ospf network type to point-to-point on interface eth0",
+        "Restart ospfd service with flag -d to enable debug logging",
+        "Adjust ospf hello interval to 10 seconds on all backbone area routers"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The ospf network type was incorrectly set to broadcast on the backbone area.",
+      "key_command": "nft list table ip ospf",
+      "escalation_path": [
+        "03:09 \u2014 L1 Network operations: Liu",
+        "03:40 \u2014 L2 Network engineer: Iris",
+        "04:39 \u2014 L3 Network architect: Anya"
+      ],
+      "incident_timestamp": "2026-04-09 03:05 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0123.md"
+  },
+  {
+    "ticket_id": "INC-2026-0124",
+    "primary": {
+      "resolution_steps": [
+        "Set BGP hold time to 30 seconds",
+        "Restart BGP service on router 10.1.1.1",
+        "Update BGP config file /etc/bgp.conf with new timer values",
+        "Verify BGP peering session with dig +short bgp 10.1.1.1"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The BGP peering session timed out due to misconfigured hold times.",
+      "key_command": "tcpdump -i eth0 port 179",
+      "escalation_path": [
+        "05:36 \u2014 L1 Network operations: Rahul",
+        "06:20 \u2014 L2 Network engineer: Yuki",
+        "07:16 \u2014 L3 Network architect: Mateo",
+        "07:57 \u2014 Engineering manager: Amelia"
+      ],
+      "incident_timestamp": "2026-03-01 05:27 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0124.md"
+  },
+  {
+    "ticket_id": "INC-2026-0125",
+    "primary": {
+      "resolution_steps": [
+        "Restart SAML gateway service with debug log level 7",
+        "Set idp_ttl to 3600 in /etc/saml/idp.conf",
+        "Update entity_id in /etc/saml/sp.conf to match IdP metadata",
+        "Run pam-test with --saml2 option to verify authentication flow",
+        "Verify JWT issuer claim matches expected value https://idp.example.org"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The SAML federation gateway was misconfigured with an incorrect entity_id.",
+      "key_command": "jwt.io decode https://sp.example.org/assertion",
+      "escalation_path": [
+        "01:41 \u2014 L1 Security operations: Ravi",
+        "02:18 \u2014 L2 Security analyst: Rahul",
+        "03:16 \u2014 L3 Security lead: Nina",
+        "04:14 \u2014 Engineering manager: Pavel"
+      ],
+      "incident_timestamp": "2026-03-25 01:31 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0125.md"
+  },
+  {
+    "ticket_id": "INC-2026-0126",
+    "primary": {
+      "resolution_steps": [
+        "Restart edge load balancer with port 443 flag",
+        "Set timeout to 30 seconds in /etc/loadbalancer.conf",
+        "Increase worker count to 4 in /etc/loadbalancer-workers.cfg",
+        "Verify MTU size is 1500 on all interfaces"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The edge load balancer was misconfigured with a low timeout value.",
+      "key_command": "iperf3 -c loadbalancer -p 443",
+      "escalation_path": [
+        "23:45 \u2014 L1 Network operations: Otto",
+        "00:24 \u2014 L2 Network engineer: Sofia"
+      ],
+      "incident_timestamp": "2026-01-22 23:33 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0126.md"
+  },
+  {
+    "ticket_id": "INC-2026-0127",
+    "primary": {
+      "resolution_steps": [
+        "Restart backup orchestrator service with --force flag",
+        "Set max_parallel_backups to 4 in /etc/backup/config.yaml",
+        "Increase disk queue depth to 32 using multipath -ll command"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The backup orchestrator failed to manage concurrent backups due to insufficient resources.",
+      "key_command": "multipath -ll -d",
+      "escalation_path": [
+        "07:47 \u2014 L1 Platform support: Felix",
+        "08:02 \u2014 L2 Platform engineer: Diego"
+      ],
+      "incident_timestamp": "2026-02-17 07:34 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0127.md"
+  },
+  {
+    "ticket_id": "INC-2026-0128",
+    "primary": {
+      "resolution_steps": [
+        "Restart session cache service with --debug flag",
+        "Set cache.ttl to 3600 in /etc/session-cache.conf",
+        "Increase cache.size to 1024MB in /etc/session-cache.conf",
+        "Run ldapsearch -x -D cn=admin -W to verify LDAP connectivity"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The session token cache expired due to incorrect ttl configuration.",
+      "key_command": "openssl s_client -connect localhost:8443 -debug",
+      "escalation_path": [
+        "17:03 \u2014 L1 Security operations: Felix",
+        "17:43 \u2014 L2 Security analyst: Linnea",
+        "18:09 \u2014 L3 Security lead: Maya"
+      ],
+      "incident_timestamp": "2026-02-01 16:50 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0128.md"
+  },
+  {
+    "ticket_id": "INC-2026-0129",
+    "primary": {
+      "resolution_steps": [
+        "Set local cache negative-TTL to 60s in /etc/resolv.conf",
+        "Add a second upstream resolver at 192.168.1.2 for failover",
+        "Increase cache size to 10000 entries to reduce misses",
+        "Verify new settings with dig +trace example.com"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The recursive resolver hit the upstream rate limit on a single authoritative zone.",
+      "key_command": "tcpdump -i any port 53",
+      "escalation_path": [
+        "10:16 \u2014 L1 Network operations: Imani",
+        "10:59 \u2014 L2 Network engineer: Camille",
+        "11:54 \u2014 L3 Network architect: Rahul",
+        "12:34 \u2014 Service owner: Kai"
+      ],
+      "incident_timestamp": "2026-03-04 10:16 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": "dns_latency"
+    },
+    "file": "INC-2026-0129.md"
+  },
+  {
+    "ticket_id": "INC-2026-0130",
+    "primary": {
+      "resolution_steps": [
+        "Set tls_cipher_list to TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
+        "Remove legacy_proxy from proxy_rotation_config.json",
+        "Update proxy_config to use pinned_cipher_list=true",
+        "Restart proxy_service on all nodes",
+        "Verify partner endpoint TLS handshake with openssl s_client"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Two outbound proxies presented different SNI behavior, causing handshake failures.",
+      "key_command": "ldapsearch -x -H ldaps://partner_endpoint -d 1",
+      "escalation_path": [
+        "21:21 \u2014 L1 Security operations: Ahmed",
+        "21:39 \u2014 L2 Security analyst: Mark",
+        "22:29 \u2014 L3 Security lead: Sofia"
+      ],
+      "incident_timestamp": "2026-04-29 21:11 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": "tls_handshake"
+    },
+    "file": "INC-2026-0130.md"
+  },
+  {
+    "ticket_id": "INC-2026-0131",
+    "primary": {
+      "resolution_steps": [
+        "Restart connection pooler with max_connections=100",
+        "Set pool_mode to transaction in postgresql.conf",
+        "Increase shared_buffers to 512MB in postgresql.conf",
+        "Run VACUUM on idle_in_transaction_sessions table"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The connection pooler exhausted its available connections due to idle transactions.",
+      "key_command": "psql -c 'SELECT * FROM pg_stat_activity WHERE state = \"idle\";'",
+      "escalation_path": [
+        "12:41 \u2014 L1 Database operator: Sofia",
+        "13:02 \u2014 L2 Database engineer: Diego",
+        "14:00 \u2014 L3 Database lead: Nina",
+        "14:46 \u2014 On-call manager: Mateo"
+      ],
+      "incident_timestamp": "2026-01-13 12:29 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0131.md"
+  },
+  {
+    "ticket_id": "INC-2026-0132",
+    "primary": {
+      "resolution_steps": [
+        "Restart metadata server on node 3 with --force-reload flag",
+        "Set /etc/metadata/server.conf max_connections to 1024",
+        "Run rsync --dry-run -avz /mnt/data/ /mnt/backup/",
+        "Verify multipath -ll output for correct path priorities",
+        "Adjust iostat interval to 5 seconds for detailed monitoring"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Metadata server failed to sync data due to high connection overload.",
+      "key_command": "rsync --dry-run -avz /mnt/data/ /mnt/backup/",
+      "escalation_path": [
+        "13:55 \u2014 L1 Platform support: Theo",
+        "14:18 \u2014 L2 Platform engineer: Bruno",
+        "15:09 \u2014 L3 Platform lead: Anya",
+        "16:09 \u2014 Service owner: Amelia"
+      ],
+      "incident_timestamp": "2026-03-04 13:46 UTC"
+    },
+    "metadata": {
+      "domain": "storage",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0132.md"
+  },
+  {
+    "ticket_id": "INC-2026-0133",
+    "primary": {
+      "resolution_steps": [
+        "Restart BGP service on router 10.1.1.1",
+        "Set hold time to 30 seconds on peer group 65001",
+        "Increase keepalive interval to 10 seconds on all BGP sessions"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The BGP peering session timed out due to mismatched hold times.",
+      "key_command": "tcpdump -i eth0 port 179",
+      "escalation_path": [
+        "07:57 \u2014 L1 Network operations: Linnea",
+        "08:24 \u2014 L2 Network engineer: Nina"
+      ],
+      "incident_timestamp": "2026-01-18 07:55 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0133.md"
+  },
+  {
+    "ticket_id": "INC-2026-0134",
+    "primary": {
+      "resolution_steps": [
+        "Set anycast route metric to 10",
+        "Restart nft service with --reload flag",
+        "Run iperf3 with -p 5201 option for throughput test",
+        "Increase tcpdump buffer size to 100000",
+        "Apply updated nft ruleset from /etc/nftables.conf"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Anycast VIP routing table was misconfigured with incorrect metric values.",
+      "key_command": "tcpdump -i any -n -vv -s 0 -c 100 port 80",
+      "escalation_path": [
+        "08:44 \u2014 L1 Network operations: Lukas",
+        "09:07 \u2014 L2 Network engineer: Sofia"
+      ],
+      "incident_timestamp": "2026-02-19 08:38 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0134.md"
+  },
+  {
+    "ticket_id": "INC-2026-0135",
+    "primary": {
+      "resolution_steps": [
+        "Restart primary SQL replica on host db01",
+        "Set max_connections to 100 in postgresql.conf",
+        "Kill idle transactions older than 300 seconds"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The primary SQL replica exceeded its connection limit due to idle transactions.",
+      "key_command": "psql -c \"SELECT * FROM pg_stat_activity WHERE state = 'idle'\"",
+      "escalation_path": [
+        "20:52 \u2014 L1 Database operator: Diego",
+        "21:03 \u2014 L2 Database engineer: Bashir",
+        "21:43 \u2014 L3 Database lead: Rahul",
+        "22:26 \u2014 On-call manager: Priya"
+      ],
+      "incident_timestamp": "2026-03-23 20:41 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0135.md"
+  },
+  {
+    "ticket_id": "INC-2026-0136",
+    "primary": {
+      "resolution_steps": [
+        "Restart log-forwarder service on node 3",
+        "Set max_buffer_size to 1024 in /etc/log-forwarder.conf",
+        "Increase timeout to 30s for log aggregation queries"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The log aggregation forwarder failed to send logs due to buffer overflow.",
+      "key_command": "log-tail -f /var/log/log-forwarder/error.log",
+      "escalation_path": [
+        "01:42 \u2014 L1 SRE on-call: Rahul",
+        "01:58 \u2014 L2 SRE: Ravi",
+        "02:38 \u2014 L3 SRE / incident commander: Hana",
+        "03:51 \u2014 Service owner: Pavel"
+      ],
+      "incident_timestamp": "2026-04-14 01:27 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0136.md"
+  },
+  {
+    "ticket_id": "INC-2026-0137",
+    "primary": {
+      "resolution_steps": [
+        "Restart metrics-agent with --debug flag",
+        "Set tsdb.retention.period to 30d in /etc/tsdb.conf",
+        "Run tsdb-cli repair on node-1 with --force option"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The metrics ingestion pipeline failed due to a tsdb configuration mismatch.",
+      "key_command": "tsdb-cli check --config /etc/tsdb.conf",
+      "escalation_path": [
+        "09:23 \u2014 L1 SRE on-call: Nina",
+        "10:08 \u2014 L2 SRE: Hiro"
+      ],
+      "incident_timestamp": "2026-05-04 09:11 UTC"
+    },
+    "metadata": {
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0137.md"
+  },
+  {
+    "ticket_id": "INC-2026-0138",
+    "primary": {
+      "resolution_steps": [
+        "Set max_retries to 5 in secrets.conf",
+        "Restart secrets manager on node 3",
+        "Update flag SECRETS_MANAGER_ENABLED to true",
+        "Verify config at /etc/secrets/config.yaml"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The secrets manager failed to initialize due to a misconfigured retry limit.",
+      "key_command": "kubectl logs secrets-manager -c config-init",
+      "escalation_path": [
+        "15:08 \u2014 L1 Platform support: Yuki",
+        "15:20 \u2014 L2 Platform engineer: Ahmed"
+      ],
+      "incident_timestamp": "2026-03-19 14:56 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0138.md"
+  },
+  {
+    "ticket_id": "INC-2026-0139",
+    "primary": {
+      "resolution_steps": [
+        "Restart containerd with --log-level=debug",
+        "Set /etc/containerd/config.toml max_container_log_line_length to 16384",
+        "Update helm chart with imagePullPolicy=Always",
+        "Run kubectl rollout restart deployment/my-deployment",
+        "Verify container runtime version is 1.4.3 or higher"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The container runtime crashed due to excessive logging.",
+      "key_command": "kubectl logs -f my-container --tail 100",
+      "escalation_path": [
+        "03:50 \u2014 L1 Platform support: Nina",
+        "04:13 \u2014 L2 Platform engineer: Lukas",
+        "04:52 \u2014 L3 Platform lead: Bruno",
+        "05:42 \u2014 Service owner: Linnea"
+      ],
+      "incident_timestamp": "2026-03-09 03:37 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0139.md"
+  },
+  {
+    "ticket_id": "INC-2026-0140",
+    "primary": {
+      "resolution_steps": [
+        "Restart directory service on node1",
+        "Set replication interval to 300 seconds",
+        "Verify ldap port 389 is open on node2",
+        "Run ldapsearch with -x and -D flags"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Directory replication failed due to misconfigured ssl certificates.",
+      "key_command": "openssl s_client -connect node1:636 -showcerts",
+      "escalation_path": [
+        "09:58 \u2014 L1 Security operations: Imani",
+        "10:19 \u2014 L2 Security analyst: Kai",
+        "10:41 \u2014 L3 Security lead: Lukas"
+      ],
+      "incident_timestamp": "2026-02-19 09:48 UTC"
+    },
+    "metadata": {
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0140.md"
+  },
+  {
+    "ticket_id": "INC-2026-0141",
+    "primary": {
+      "resolution_steps": [
+        "Restart cluster autoscaler with --v=4 flag",
+        "Set scale-down-unneeded-time to 10m in cluster autoscaler config",
+        "Update kustomize configuration to include autoscaler max-node-count: 10",
+        "Run crictl to verify pod eviction policy",
+        "Check stern logs for autoscaler error messages"
+      ]
+    },
+    "bonus": {
+      "root_cause": "Cluster autoscaler was not scaling down due to misconfigured timeout.",
+      "key_command": "stern -n default cluster-autoscaler",
+      "escalation_path": [
+        "09:06 \u2014 L1 Platform support: Liu",
+        "09:25 \u2014 L2 Platform engineer: Carlos",
+        "10:14 \u2014 L3 Platform lead: Tomas",
+        "11:44 \u2014 On-call manager: Linnea"
+      ],
+      "incident_timestamp": "2026-03-31 09:04 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0141.md"
+  },
+  {
+    "ticket_id": "INC-2026-0142",
+    "primary": {
+      "resolution_steps": [
+        "Restart primary SQL replica on node 1",
+        "Set max_connections to 500 in postgresql.conf",
+        "Run VACUUM on database foo with verbose output",
+        "Adjust shared_buffers to 2GB in postgresql.conf"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The primary SQL replica exceeded its connection limit due to misconfigured max_connections.",
+      "key_command": "psql -c \"SHOW max_connections;\"",
+      "escalation_path": [
+        "07:54 \u2014 L1 Database operator: Leila",
+        "08:39 \u2014 L2 Database engineer: Ahmed"
+      ],
+      "incident_timestamp": "2026-03-19 07:52 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0142.md"
+  },
+  {
+    "ticket_id": "INC-2026-0143",
+    "primary": {
+      "resolution_steps": [
+        "Restart connection pooler with max_connections=500",
+        "Set pool_size to 200 in /etc/dbconfig",
+        "Adjust idle_timeout to 60 seconds",
+        "Increase shared_buffers to 2GB",
+        "Run ANALYZE on pg_stat_activity view"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The connection pooler exhausted its available connections due to misconfigured parameters.",
+      "key_command": "psql -c 'SELECT * FROM pg_stat_activity;'",
+      "escalation_path": [
+        "23:48 \u2014 L1 Database operator: Diego",
+        "00:16 \u2014 L2 Database engineer: Zara",
+        "00:43 \u2014 L3 Database lead: Aisha",
+        "01:21 \u2014 Engineering manager: Yuki"
+      ],
+      "incident_timestamp": "2026-03-28 23:39 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0143.md"
+  },
+  {
+    "ticket_id": "INC-2026-0144",
+    "primary": {
+      "resolution_steps": [
+        "Restart kubelet on node-1",
+        "Set --max-pods to 100 in /etc/kubernetes/kubelet.conf",
+        "Run crictl delete --force all stopped containers"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The node's kubelet service had crashed due to excessive pod allocation.",
+      "key_command": "stern -n default --kubelet-port 10250",
+      "escalation_path": [
+        "15:56 \u2014 L1 Platform support: Jonas",
+        "16:12 \u2014 L2 Platform engineer: Imani",
+        "16:33 \u2014 L3 Platform lead: Tomas"
+      ],
+      "incident_timestamp": "2026-05-05 15:47 UTC"
+    },
+    "metadata": {
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null
+    },
+    "file": "INC-2026-0144.md"
+  },
+  {
+    "ticket_id": "INC-2026-0145",
+    "primary": {
+      "resolution_steps": [
+        "Restart dns-cache on node 3",
+        "Set dns_cache_size to 1024",
+        "Clear /var/cache/dns/entries",
+        "Run registry-gc with --dns-purge flag"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The internal DNS cache became corrupted due to a missing registry_gc run.",
+      "key_command": "dig +short dns-cache-status",
+      "escalation_path": [
+        "21:20 \u2014 L1 Platform support: Mei",
+        "22:02 \u2014 L2 Platform engineer: Hana"
+      ],
+      "incident_timestamp": "2026-05-02 21:07 UTC"
+    },
+    "metadata": {
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0145.md"
+  },
+  {
+    "ticket_id": "INC-2026-0146",
+    "primary": {
+      "resolution_steps": [
+        "Restart router with config file /etc/router.cfg",
+        "Set MTU to 1500 on interface eth0",
+        "Update routing table with command nft add rule inet filter input tcp dport 22",
+        "Run traceroute -n 8.8.8.8 to verify path",
+        "Capture packets with tcpdump -i eth0 -n -vv -s 0 -c 100"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The WAN aggregation router was configured with an incorrect MTU size.",
+      "key_command": "traceroute -n 8.8.8.8",
+      "escalation_path": [
+        "16:02 \u2014 L1 Network operations: Sara",
+        "16:15 \u2014 L2 Network engineer: Carlos",
+        "16:58 \u2014 L3 Network architect: Ravi",
+        "17:44 \u2014 Service owner: Greta"
+      ],
+      "incident_timestamp": "2026-03-04 15:47 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0146.md"
+  },
+  {
+    "ticket_id": "INC-2026-0147",
+    "primary": {
+      "resolution_steps": [
+        "Restart edge load balancer on node 1",
+        "Set timeout to 30 seconds in /etc/loadbalancer.conf",
+        "Update DNS TTL to 300 seconds using nslookup"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The edge load balancer failed to properly distribute traffic due to a misconfigured timeout.",
+      "key_command": "tcpdump -i eth0 port 80",
+      "escalation_path": [
+        "12:30 \u2014 L1 Network operations: Olu",
+        "12:51 \u2014 L2 Network engineer: Rafael",
+        "13:49 \u2014 L3 Network architect: Anya"
+      ],
+      "incident_timestamp": "2026-03-10 12:16 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0147.md"
+  },
+  {
+    "ticket_id": "INC-2026-0148",
+    "primary": {
+      "resolution_steps": [
+        "Restart WAL archiver with --archive_timeout=60",
+        "Set wal_sender_timeout to 3000ms in postgresql.conf",
+        "Increase max_wal_senders to 5",
+        "Run VACUUM on pg_catalog tables"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The WAL archive process hung due to insufficient wal sender resources.",
+      "key_command": "psql -c 'SELECT * FROM pg_stat_activity WHERE state = \"active\"'",
+      "escalation_path": [
+        "23:03 \u2014 L1 Database operator: Olu",
+        "23:46 \u2014 L2 Database engineer: Nina",
+        "00:34 \u2014 L3 Database lead: Hana",
+        "01:05 \u2014 Service owner: Hiro"
+      ],
+      "incident_timestamp": "2026-04-14 23:00 UTC"
+    },
+    "metadata": {
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0148.md"
+  },
+  {
+    "ticket_id": "INC-2026-0149",
+    "primary": {
+      "resolution_steps": [
+        "Set OSPF cost to 10 on interface eth0",
+        "Restart OSPF service on router1",
+        "Increase hello interval to 30 seconds"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The OSPF backbone area failed to converge due to mismatched timers.",
+      "key_command": "iperf3 -c router1 -p 5001",
+      "escalation_path": [
+        "15:39 \u2014 L1 Network operations: Kenji",
+        "15:52 \u2014 L2 Network engineer: Liu"
+      ],
+      "incident_timestamp": "2026-02-26 15:25 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null
+    },
+    "file": "INC-2026-0149.md"
+  },
+  {
+    "ticket_id": "INC-2026-0150",
+    "primary": {
+      "resolution_steps": [
+        "Set max recursion depth to 10 in /etc/named.conf",
+        "Restart named service on all recursive DNS nodes",
+        "Update nftables rule 5 to allow UDP packets on port 53",
+        "Verify DNS query timeout is set to 2 seconds"
+      ]
+    },
+    "bonus": {
+      "root_cause": "The recursive DNS resolver cluster was overwhelmed by excessive queries due to a misconfigured max recursion depth.",
+      "key_command": "nslookup -type=soa example.com 127.0.0.1",
+      "escalation_path": [
+        "01:36 \u2014 L1 Network operations: Imani",
+        "01:46 \u2014 L2 Network engineer: Jin",
+        "02:25 \u2014 L3 Network architect: Nina"
+      ],
+      "incident_timestamp": "2026-01-30 01:25 UTC"
+    },
+    "metadata": {
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null
+    },
+    "file": "INC-2026-0150.md"
+  }
+]

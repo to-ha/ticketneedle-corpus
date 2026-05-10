@@ -1,0 +1,1358 @@
+{
+  "size": "large",
+  "base_seed": 42,
+  "model": "llama3.3:70b",
+  "n_tickets": 150,
+  "specs": [
+    {
+      "ticket_id": "INC-2026-0001",
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 42
+    },
+    {
+      "ticket_id": "INC-2026-0002",
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 43
+    },
+    {
+      "ticket_id": "INC-2026-0003",
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 44
+    },
+    {
+      "ticket_id": "INC-2026-0004",
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 45
+    },
+    {
+      "ticket_id": "INC-2026-0005",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 46
+    },
+    {
+      "ticket_id": "INC-2026-0006",
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 47
+    },
+    {
+      "ticket_id": "INC-2026-0007",
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 48
+    },
+    {
+      "ticket_id": "INC-2026-0008",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 49
+    },
+    {
+      "ticket_id": "INC-2026-0009",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 50
+    },
+    {
+      "ticket_id": "INC-2026-0010",
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 51
+    },
+    {
+      "ticket_id": "INC-2026-0011",
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 52
+    },
+    {
+      "ticket_id": "INC-2026-0012",
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 53
+    },
+    {
+      "ticket_id": "INC-2026-0013",
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": "pod_crashloop",
+      "cluster_variant": 0,
+      "ticket_seed": 54
+    },
+    {
+      "ticket_id": "INC-2026-0014",
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 55
+    },
+    {
+      "ticket_id": "INC-2026-0015",
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 56
+    },
+    {
+      "ticket_id": "INC-2026-0016",
+      "domain": "platform",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 57
+    },
+    {
+      "ticket_id": "INC-2026-0017",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 58
+    },
+    {
+      "ticket_id": "INC-2026-0018",
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": "tls_handshake",
+      "cluster_variant": 0,
+      "ticket_seed": 59
+    },
+    {
+      "ticket_id": "INC-2026-0019",
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 60
+    },
+    {
+      "ticket_id": "INC-2026-0020",
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 61
+    },
+    {
+      "ticket_id": "INC-2026-0021",
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 62
+    },
+    {
+      "ticket_id": "INC-2026-0022",
+      "domain": "monitoring",
+      "length_bucket": "medium",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 63
+    },
+    {
+      "ticket_id": "INC-2026-0023",
+      "domain": "platform",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 64
+    },
+    {
+      "ticket_id": "INC-2026-0024",
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 65
+    },
+    {
+      "ticket_id": "INC-2026-0025",
+      "domain": "monitoring",
+      "length_bucket": "medium",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 66
+    },
+    {
+      "ticket_id": "INC-2026-0026",
+      "domain": "storage",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 67
+    },
+    {
+      "ticket_id": "INC-2026-0027",
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 68
+    },
+    {
+      "ticket_id": "INC-2026-0028",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 69
+    },
+    {
+      "ticket_id": "INC-2026-0029",
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 70
+    },
+    {
+      "ticket_id": "INC-2026-0030",
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 71
+    },
+    {
+      "ticket_id": "INC-2026-0031",
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 72
+    },
+    {
+      "ticket_id": "INC-2026-0032",
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 73
+    },
+    {
+      "ticket_id": "INC-2026-0033",
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 74
+    },
+    {
+      "ticket_id": "INC-2026-0034",
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 75
+    },
+    {
+      "ticket_id": "INC-2026-0035",
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 76
+    },
+    {
+      "ticket_id": "INC-2026-0036",
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 77
+    },
+    {
+      "ticket_id": "INC-2026-0037",
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 78
+    },
+    {
+      "ticket_id": "INC-2026-0038",
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 79
+    },
+    {
+      "ticket_id": "INC-2026-0039",
+      "domain": "kubernetes",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 80
+    },
+    {
+      "ticket_id": "INC-2026-0040",
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 81
+    },
+    {
+      "ticket_id": "INC-2026-0041",
+      "domain": "kubernetes",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 82
+    },
+    {
+      "ticket_id": "INC-2026-0042",
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": "db_conn_drops",
+      "cluster_variant": 1,
+      "ticket_seed": 83
+    },
+    {
+      "ticket_id": "INC-2026-0043",
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": "dns_latency",
+      "cluster_variant": 1,
+      "ticket_seed": 84
+    },
+    {
+      "ticket_id": "INC-2026-0044",
+      "domain": "storage",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 85
+    },
+    {
+      "ticket_id": "INC-2026-0045",
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 86
+    },
+    {
+      "ticket_id": "INC-2026-0046",
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 87
+    },
+    {
+      "ticket_id": "INC-2026-0047",
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 88
+    },
+    {
+      "ticket_id": "INC-2026-0048",
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": "pod_crashloop",
+      "cluster_variant": 2,
+      "ticket_seed": 89
+    },
+    {
+      "ticket_id": "INC-2026-0049",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 90
+    },
+    {
+      "ticket_id": "INC-2026-0050",
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 91
+    },
+    {
+      "ticket_id": "INC-2026-0051",
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 92
+    },
+    {
+      "ticket_id": "INC-2026-0052",
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 93
+    },
+    {
+      "ticket_id": "INC-2026-0053",
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 94
+    },
+    {
+      "ticket_id": "INC-2026-0054",
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 95
+    },
+    {
+      "ticket_id": "INC-2026-0055",
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 96
+    },
+    {
+      "ticket_id": "INC-2026-0056",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 97
+    },
+    {
+      "ticket_id": "INC-2026-0057",
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 98
+    },
+    {
+      "ticket_id": "INC-2026-0058",
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 99
+    },
+    {
+      "ticket_id": "INC-2026-0059",
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 100
+    },
+    {
+      "ticket_id": "INC-2026-0060",
+      "domain": "storage",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 101
+    },
+    {
+      "ticket_id": "INC-2026-0061",
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 102
+    },
+    {
+      "ticket_id": "INC-2026-0062",
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 103
+    },
+    {
+      "ticket_id": "INC-2026-0063",
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 104
+    },
+    {
+      "ticket_id": "INC-2026-0064",
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 105
+    },
+    {
+      "ticket_id": "INC-2026-0065",
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 106
+    },
+    {
+      "ticket_id": "INC-2026-0066",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 107
+    },
+    {
+      "ticket_id": "INC-2026-0067",
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 108
+    },
+    {
+      "ticket_id": "INC-2026-0068",
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 109
+    },
+    {
+      "ticket_id": "INC-2026-0069",
+      "domain": "kubernetes",
+      "length_bucket": "long",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 110
+    },
+    {
+      "ticket_id": "INC-2026-0070",
+      "domain": "kubernetes",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 111
+    },
+    {
+      "ticket_id": "INC-2026-0071",
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 112
+    },
+    {
+      "ticket_id": "INC-2026-0072",
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 113
+    },
+    {
+      "ticket_id": "INC-2026-0073",
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 114
+    },
+    {
+      "ticket_id": "INC-2026-0074",
+      "domain": "storage",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 115
+    },
+    {
+      "ticket_id": "INC-2026-0075",
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 116
+    },
+    {
+      "ticket_id": "INC-2026-0076",
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 117
+    },
+    {
+      "ticket_id": "INC-2026-0077",
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 118
+    },
+    {
+      "ticket_id": "INC-2026-0078",
+      "domain": "platform",
+      "length_bucket": "medium",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 119
+    },
+    {
+      "ticket_id": "INC-2026-0079",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 120
+    },
+    {
+      "ticket_id": "INC-2026-0080",
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 121
+    },
+    {
+      "ticket_id": "INC-2026-0081",
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 122
+    },
+    {
+      "ticket_id": "INC-2026-0082",
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 123
+    },
+    {
+      "ticket_id": "INC-2026-0083",
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": "dns_latency",
+      "cluster_variant": 2,
+      "ticket_seed": 124
+    },
+    {
+      "ticket_id": "INC-2026-0084",
+      "domain": "auth",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 125
+    },
+    {
+      "ticket_id": "INC-2026-0085",
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 126
+    },
+    {
+      "ticket_id": "INC-2026-0086",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 127
+    },
+    {
+      "ticket_id": "INC-2026-0087",
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 128
+    },
+    {
+      "ticket_id": "INC-2026-0088",
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 129
+    },
+    {
+      "ticket_id": "INC-2026-0089",
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 130
+    },
+    {
+      "ticket_id": "INC-2026-0090",
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 131
+    },
+    {
+      "ticket_id": "INC-2026-0091",
+      "domain": "monitoring",
+      "length_bucket": "long",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 132
+    },
+    {
+      "ticket_id": "INC-2026-0092",
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 133
+    },
+    {
+      "ticket_id": "INC-2026-0093",
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 134
+    },
+    {
+      "ticket_id": "INC-2026-0094",
+      "domain": "monitoring",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 135
+    },
+    {
+      "ticket_id": "INC-2026-0095",
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 136
+    },
+    {
+      "ticket_id": "INC-2026-0096",
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 137
+    },
+    {
+      "ticket_id": "INC-2026-0097",
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 138
+    },
+    {
+      "ticket_id": "INC-2026-0098",
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 139
+    },
+    {
+      "ticket_id": "INC-2026-0099",
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 140
+    },
+    {
+      "ticket_id": "INC-2026-0100",
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 141
+    },
+    {
+      "ticket_id": "INC-2026-0101",
+      "domain": "platform",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 142
+    },
+    {
+      "ticket_id": "INC-2026-0102",
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": "db_conn_drops",
+      "cluster_variant": 2,
+      "ticket_seed": 143
+    },
+    {
+      "ticket_id": "INC-2026-0103",
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 144
+    },
+    {
+      "ticket_id": "INC-2026-0104",
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 145
+    },
+    {
+      "ticket_id": "INC-2026-0105",
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 146
+    },
+    {
+      "ticket_id": "INC-2026-0106",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 147
+    },
+    {
+      "ticket_id": "INC-2026-0107",
+      "domain": "database",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 148
+    },
+    {
+      "ticket_id": "INC-2026-0108",
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 149
+    },
+    {
+      "ticket_id": "INC-2026-0109",
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 150
+    },
+    {
+      "ticket_id": "INC-2026-0110",
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": "db_conn_drops",
+      "cluster_variant": 0,
+      "ticket_seed": 151
+    },
+    {
+      "ticket_id": "INC-2026-0111",
+      "domain": "platform",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 152
+    },
+    {
+      "ticket_id": "INC-2026-0112",
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 153
+    },
+    {
+      "ticket_id": "INC-2026-0113",
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 154
+    },
+    {
+      "ticket_id": "INC-2026-0114",
+      "domain": "kubernetes",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": "pod_crashloop",
+      "cluster_variant": 1,
+      "ticket_seed": 155
+    },
+    {
+      "ticket_id": "INC-2026-0115",
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 156
+    },
+    {
+      "ticket_id": "INC-2026-0116",
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": "dns_latency",
+      "cluster_variant": 3,
+      "ticket_seed": 157
+    },
+    {
+      "ticket_id": "INC-2026-0117",
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 158
+    },
+    {
+      "ticket_id": "INC-2026-0118",
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 159
+    },
+    {
+      "ticket_id": "INC-2026-0119",
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 160
+    },
+    {
+      "ticket_id": "INC-2026-0120",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 161
+    },
+    {
+      "ticket_id": "INC-2026-0121",
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 162
+    },
+    {
+      "ticket_id": "INC-2026-0122",
+      "domain": "auth",
+      "length_bucket": "long",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 163
+    },
+    {
+      "ticket_id": "INC-2026-0123",
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 164
+    },
+    {
+      "ticket_id": "INC-2026-0124",
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 165
+    },
+    {
+      "ticket_id": "INC-2026-0125",
+      "domain": "auth",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 166
+    },
+    {
+      "ticket_id": "INC-2026-0126",
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 167
+    },
+    {
+      "ticket_id": "INC-2026-0127",
+      "domain": "storage",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 168
+    },
+    {
+      "ticket_id": "INC-2026-0128",
+      "domain": "auth",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 169
+    },
+    {
+      "ticket_id": "INC-2026-0129",
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": "dns_latency",
+      "cluster_variant": 0,
+      "ticket_seed": 170
+    },
+    {
+      "ticket_id": "INC-2026-0130",
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": "tls_handshake",
+      "cluster_variant": 1,
+      "ticket_seed": 171
+    },
+    {
+      "ticket_id": "INC-2026-0131",
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 172
+    },
+    {
+      "ticket_id": "INC-2026-0132",
+      "domain": "storage",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 173
+    },
+    {
+      "ticket_id": "INC-2026-0133",
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 174
+    },
+    {
+      "ticket_id": "INC-2026-0134",
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 175
+    },
+    {
+      "ticket_id": "INC-2026-0135",
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 176
+    },
+    {
+      "ticket_id": "INC-2026-0136",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 177
+    },
+    {
+      "ticket_id": "INC-2026-0137",
+      "domain": "monitoring",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 178
+    },
+    {
+      "ticket_id": "INC-2026-0138",
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 179
+    },
+    {
+      "ticket_id": "INC-2026-0139",
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 180
+    },
+    {
+      "ticket_id": "INC-2026-0140",
+      "domain": "auth",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 181
+    },
+    {
+      "ticket_id": "INC-2026-0141",
+      "domain": "kubernetes",
+      "length_bucket": "medium",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 182
+    },
+    {
+      "ticket_id": "INC-2026-0142",
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 183
+    },
+    {
+      "ticket_id": "INC-2026-0143",
+      "domain": "database",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 184
+    },
+    {
+      "ticket_id": "INC-2026-0144",
+      "domain": "kubernetes",
+      "length_bucket": "short",
+      "priority": "P3",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 185
+    },
+    {
+      "ticket_id": "INC-2026-0145",
+      "domain": "platform",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 186
+    },
+    {
+      "ticket_id": "INC-2026-0146",
+      "domain": "network",
+      "length_bucket": "long",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 187
+    },
+    {
+      "ticket_id": "INC-2026-0147",
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 188
+    },
+    {
+      "ticket_id": "INC-2026-0148",
+      "domain": "database",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 189
+    },
+    {
+      "ticket_id": "INC-2026-0149",
+      "domain": "network",
+      "length_bucket": "short",
+      "priority": "P1",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 190
+    },
+    {
+      "ticket_id": "INC-2026-0150",
+      "domain": "network",
+      "length_bucket": "medium",
+      "priority": "P2",
+      "cluster": null,
+      "cluster_variant": null,
+      "ticket_seed": 191
+    }
+  ]
+}
